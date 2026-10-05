@@ -1,0 +1,154 @@
+/* ===== 応募ボタンのかたまり（cta_A〜cta_H 共通の部品）=====
+   見本 master/v9.png の cta_A〜cta_H を実測。各区画の CSS は地の色と位置（--cta-top 等）だけを持つ */
+
+/* 区画の土台（子要素を区画内の絶対位置で置く） */
+.cta{
+  position: relative;
+}
+
+/* 誘導文の行（白の太字。左右に「＼」「／」）。top は各区画の --cta-lead-top */
+.cta-lead{
+  position: absolute;
+  top: var(--cta-lead-top);
+  left: var(--cta-lead-dx, 0px);
+  width: 1024px;
+  height: 60px;
+  /* 大きさ・太さは区画ごとに見本に合わせた値（--cta-lead-fs / --cta-lead-fw） */
+  font-size: var(--cta-lead-fs, 45px);
+  font-weight: var(--cta-lead-fw, 900);
+  line-height: 60px;
+  /* 字間は区画ごとに見本の文字幅から実測（各区画の --cta-lead-ls） */
+  letter-spacing: var(--cta-lead-ls, 0px);
+  font-feature-settings: "palt" 1;
+  /* 見本の文字の中の色の中央値 */
+  color: #f9f9fa;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 誘導文の左右の斜線「＼」「／」（見本: 外形40×41px・横方向の太さ9px。SVGの線で描き、読み上げでは読まない）。位置は各区画の --cta-mark-* */
+.cta-lead-mark{
+  position: absolute;
+  top: var(--cta-mark-top);
+  width: var(--cta-mark-w, 40px);
+  height: 41px;
+}
+
+/* 左の斜線「＼」 */
+.cta-lead-mark-l{
+  left: var(--cta-mark-l);
+}
+
+/* 右の斜線「／」 */
+.cta-lead-mark-r{
+  left: var(--cta-mark-r);
+}
+
+/* 斜線の線（見本の太さ・色） */
+.cta-lead-mark svg{
+  display: block;
+  width: 100%;
+  height: 41px;
+  overflow: visible;
+  stroke: #f9f9fa;
+  stroke-width: 7;
+  stroke-linecap: butt;
+}
+
+/* 応募ボタン本体（見本: 左端x=43・右端x=980・上縁5px＋塗り131px＝136px、下にクリーム4行と厚み6px） */
+.cta-btn{
+  position: absolute;
+  top: var(--cta-top);
+  left: 43px;
+  display: block;
+  width: 938px;
+  height: 136px;
+  /* 淡いクリーム色の縁取り（見本: 上と左右は約5px #f6e092。下辺は下の影の重ねで描く） */
+  border: 5px solid #f6e092;
+  border-bottom: 0;
+  border-radius: 71px;
+  /* 塗り: 縁の内側131行を8行ごとに実測した上→下の色 */
+  background: linear-gradient(
+    to bottom,
+    #fd9312 0px,
+    #fd8c0d 1px,
+    #fd8b0e 2px,
+    #fd8b0f 4px,
+    #fd8a0e 8px,
+    #fd860e 16px,
+    #fd810d 24px,
+    #fd7c0b 32px,
+    #fe780a 40px,
+    #fe7409 48px,
+    #fd7008 56px,
+    #fe6c07 64px,
+    #fe6606 72px,
+    #fd6004 80px,
+    #fd5c03 88px,
+    #fd5703 96px,
+    #fd5302 104px,
+    #fd5001 112px,
+    #fd4d01 120px,
+    #fd4b01 126px,
+    #fb4401 130px
+  );
+  /* 下辺のクリームの縁4行（見本の1行ずつの色）と、その下の濃いオレンジの厚み6px（見本 #c94a02）と周りの淡い影 */
+  box-shadow:
+    0 1px 0 #fdb952,
+    0 2px 0 #fde584,
+    0 3px 0 #fee379,
+    0 4px 0 #f2aa40,
+    0 10px 0 #c94a02,
+    0 8px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ボタンの文言（見本: 文字のインクが x=155〜845） */
+.cta-btn-text{
+  position: absolute;
+  top: 0;
+  left: 93px;
+  height: 131px;
+  font-size: 45px;
+  font-weight: 900;
+  line-height: 131px;
+  letter-spacing: -0.4px;
+  /* 見本の文字の中の色の中央値 */
+  color: #fefaf7;
+  white-space: nowrap;
+}
+
+/* 右端の白い丸（見本: 直径71px・中心 x=911） */
+.cta-btn-circle{
+  position: absolute;
+  top: 33px;
+  left: 828px;
+  width: 71px;
+  height: 71px;
+  border-radius: 50%;
+  background: #fefdfd;
+}
+
+/* 白い丸の中の「›」（見本: 線の太さ8px・外形 22×37px・色 #fd5d06） */
+.cta-btn-arrow{
+  position: absolute;
+  top: 14px;
+  left: 24px;
+  width: 30px;
+  height: 44px;
+}
+
+/* 補足「応募無料｜面接は…」（見本の文字の中の色の中央値 #c2def7） */
+.cta-note{
+  position: absolute;
+  top: calc(var(--cta-top) + 156px);
+  left: 0;
+  width: 1024px;
+  height: 40px;
+  font-size: 27px;
+  font-weight: 900;
+  line-height: 40px;
+  letter-spacing: 2.4px;
+  color: #c2def7;
+  text-align: center;
+  white-space: nowrap;
+}

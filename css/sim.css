@@ -1,0 +1,847 @@
+/* ===== sim：入社1年目の給与シミュレーション（見本 y2666〜4264） ===== */
+
+/* 区画の地（見本 y2700 の白を実測）と高さの保証 */
+section[data-unit="sim"]{
+  height: 1598px;
+  background: #fdfefe;
+}
+
+/* 文字の共通 */
+.sim-t{
+  position: absolute;
+  display: block;
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  transform-origin: 0 0;
+  /* 色のにじみ（サブピクセル描画）を止めて、見本と同じ灰色のふち取りにする */
+  -webkit-font-smoothing: antialiased;
+  will-change: transform;
+}
+
+/* 「5/13 入社想定」の枠（見本 x761〜984・y2811〜2868、線の太さ3px） */
+.sim-badge{
+  position: absolute;
+  left: 761px;
+  top: 145px;
+  width: 224px;
+  height: 58px;
+  margin: 0;
+  border: 3px solid #072a55;
+  border-radius: 10px;
+}
+
+/* 時間の流れの縦線（見本 x62〜68・y2855〜4129） */
+.sim-line{
+  position: absolute;
+  left: 62px;
+  top: 189px;
+  width: 7px;
+  height: 1275px;
+  background: #06264b;
+}
+
+/* 節目の丸（直径37。見本の中心 x65.5） */
+.sim-dot{
+  position: absolute;
+  left: 47px;
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  background: #05264d;
+}
+
+/* 丸の縦位置（見本の中心 y2908・3022・3146・3391・3863） */
+.sim-dot--0{
+  top: 223.5px;
+}
+
+.sim-dot--1{
+  top: 337.5px;
+}
+
+.sim-dot--2{
+  top: 461.5px;
+}
+
+.sim-dot--7{
+  top: 706.5px;
+}
+
+.sim-dot--13{
+  top: 1178.5px;
+}
+
+/* 節目の並び */
+.sim-steps{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 紺のカード（見本 x311.2〜985.9。ふちは1px濃い紺、外側に薄い影が4pxほど） */
+.sim-card{
+  position: absolute;
+  left: 311px;
+  width: 675px;
+  border: 1px solid #022049;
+  border-radius: 16px;
+  background: #05284f;
+  box-shadow: 0 0 0 4px rgba(5, 40, 79, 0.03);
+}
+
+/* 7ヶ月目のカード（見本 y3345.5〜3738.5。0.5pxずれた位置にあるので transform で寄せる） */
+.sim-card--1{
+  top: 679px;
+  height: 393px;
+  transform: translate(0.2px, 0.5px);
+}
+
+/* 13ヶ月目のカード（見本 y3816.3〜4134.4） */
+.sim-card--2{
+  top: 1150px;
+  height: 318px;
+  transform: translate(0.2px, 0.3px);
+}
+
+/* カードの中の白い区切り線（見本 x341〜958、3行ぶんの明るさを実測） */
+.sim-card-line{
+  position: absolute;
+  left: 29px;
+  width: 618px;
+  height: 3px;
+}
+
+/* 7ヶ月目のカードの区切り線（見本 y3449〜3451。カードの小数ずれを打ち消して1px単位に戻す） */
+.sim-card--1 .sim-card-line{
+  top: 103px;
+  background: linear-gradient(to bottom, #dadfea 0, #dadfea 1px, #fcfcfe 1px, #fcfcfe 2px, #798ba4 2px);
+  transform: translate(-0.2px, -0.5px);
+}
+
+/* 13ヶ月目のカードの区切り線（見本 y3914〜3916） */
+.sim-card--2 .sim-card-line{
+  top: 97px;
+  background: linear-gradient(to bottom, #a5acc0 0, #a5acc0 1px, #f8f8fc 1px, #f8f8fc 2px, #a3aec3 2px);
+  transform: translate(-0.2px, -0.3px);
+}
+
+/* カードの中の文字の行（カードの小数ずれを打ち消して、文字を見本と同じ1px単位の位置に戻す） */
+.sim-card--1 > p{
+  transform: translate(-0.2px, -0.5px);
+}
+
+.sim-card--2 > p{
+  transform: translate(-0.2px, -0.3px);
+}
+
+/* ===== ここから文字の位置・大きさ（見本のインクの外接矩形を実測して当てはめた値）===== */
+/* 「入社1年目の給与シミュレーション」（紺文字。見本 x46〜884・y2739〜2794） */
+.sim-title{
+  left: 44px;
+  top: 69px;
+  font-weight: 800;
+  font-size: 59.58px;
+  letter-spacing: -5.41px;
+  color: #042244;
+}
+
+/* 「5/13」（紺文字。見本 x788〜848・y2828〜2852） */
+.sim-badge-date{
+  left: 23px;
+  top: 12px;
+  font-weight: 900;
+  font-size: 25.29px;
+  letter-spacing: 2.33px;
+  color: #041d42;
+}
+
+/* 「入社想定」（紺文字。見本 x861〜960・y2828〜2852） */
+.sim-badge-text{
+  left: 96.06px;
+  top: 12px;
+  font-weight: 900;
+  font-size: 26.32px;
+  letter-spacing: 1.24px;
+  transform: scaleX(0.94);
+  color: #041d43;
+}
+
+/* 「入社時」（紺文字。見本 x107〜231・y2892〜2932） */
+.sim-m0{
+  left: 105px;
+  top: 223px;
+  font-weight: 800;
+  font-size: 43.62px;
+  letter-spacing: -1.12px;
+  color: #042145;
+}
+
+/* 「赴任手当」（紺文字。見本 x316〜460・y2893〜2928） */
+.sim-m0-label{
+  left: 315px;
+  top: 225px;
+  font-weight: 800;
+  font-size: 38.32px;
+  letter-spacing: -1.2px;
+  color: #032044;
+}
+
+/* 「3」（金文字。見本 x486〜534・y2871〜2940） */
+.sim-m0-num{
+  left: 484.03px;
+  top: 193px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 95.89px;
+  transform: scaleX(0.983);
+  color: #f2a903;
+}
+
+/* 「万円」（金文字。見本 x540〜637・y2889〜2935） */
+.sim-m0-unit{
+  left: 539px;
+  top: 215px;
+  font-weight: 900;
+  font-size: 53.41px;
+  letter-spacing: -4.01px;
+  color: #f1a905;
+}
+
+/* 「1ヶ月目」（紺文字。見本 x109〜245・y3009〜3049） */
+.sim-m1{
+  left: 105px;
+  top: 338px;
+  font-weight: 900;
+  font-size: 43.98px;
+  letter-spacing: -3.83px;
+  color: #042244;
+}
+
+/* 「月収」（紺文字。見本 x318〜394・y3005〜3042） */
+.sim-m1-label{
+  left: 317px;
+  top: 336px;
+  font-weight: 800;
+  font-size: 40.43px;
+  letter-spacing: -2.23px;
+  color: #042043;
+}
+
+/* 「23」（金文字。見本 x486〜583・y2990〜3056） */
+.sim-m1-a{
+  left: 483px;
+  top: 313px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 91.78px;
+  letter-spacing: -2.04px;
+  color: #f1a903;
+}
+
+/* 「万」（金文字。見本 x589〜640・y3006〜3055） */
+.sim-m1-b{
+  left: 588px;
+  top: 332px;
+  font-weight: 900;
+  font-size: 56.82px;
+  transform: scaleX(0.995);
+  color: #f0a705;
+}
+
+/* 「8,530」（金文字。見本 x645〜854・y2991〜3063） */
+.sim-m1-c{
+  left: 641px;
+  top: 312px;
+  font-weight: 800;
+  font-size: 75.52px;
+  letter-spacing: 2.61px;
+  color: #f1a803;
+}
+
+/* 「円」（金文字。見本 x859〜904・y3008〜3055） */
+.sim-m1-d{
+  left: 855.08px;
+  top: 335px;
+  font-weight: 900;
+  font-size: 54.55px;
+  transform: scaleX(0.981);
+  color: #f4aa04;
+}
+
+/* 「2ヶ月目」（紺文字。見本 x108〜245・y3132〜3171） */
+.sim-m2{
+  left: 106.08px;
+  top: 461px;
+  font-weight: 900;
+  font-size: 43.99px;
+  letter-spacing: -2.43px;
+  transform: scaleX(0.959);
+  color: #042244;
+}
+
+/* 「月収」（紺文字。見本 x318〜394・y3130〜3166） */
+.sim-m2-label{
+  left: 317px;
+  top: 460px;
+  font-weight: 900;
+  font-size: 39.36px;
+  letter-spacing: -0.15px;
+  color: #052042;
+}
+
+/* 「31」（金文字。見本 x486〜568・y3113〜3180） */
+.sim-m2-a{
+  left: 484px;
+  top: 435px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 93.15px;
+  letter-spacing: -7.36px;
+  color: #f1a803;
+}
+
+/* 「万」（金文字。見本 x581〜634・y3129〜3180） */
+.sim-m2-b{
+  left: 580.01px;
+  top: 455px;
+  font-weight: 900;
+  font-size: 59.09px;
+  transform: scaleX(0.993);
+  color: #f0a704;
+}
+
+/* 「6,580」（金文字。見本 x639〜849・y3114〜3186） */
+.sim-m2-c{
+  left: 635px;
+  top: 435px;
+  font-weight: 800;
+  font-size: 75.52px;
+  letter-spacing: 2.86px;
+  color: #f2a903;
+}
+
+/* 「円」（金文字。見本 x856〜902・y3131〜3178） */
+.sim-m2-d{
+  left: 851.99px;
+  top: 458px;
+  font-weight: 900;
+  font-size: 54.55px;
+  transform: scaleX(1.002);
+  color: #f3aa05;
+}
+
+/* 「＋」（紺文字。見本 x313〜340・y3208〜3236） */
+.sim-m2-plus{
+  left: 307.2px;
+  top: 534px;
+  font-weight: 900;
+  font-size: 41.43px;
+  transform: scaleX(0.966);
+  color: #042047;
+}
+
+/* 「入社時特別手当」（紺文字。見本 x356〜619・y3206〜3241） */
+.sim-m2-label2{
+  left: 354px;
+  top: 537px;
+  font-weight: 900;
+  font-size: 37.5px;
+  letter-spacing: 1.17px;
+  color: #032042;
+}
+
+/* 「40」（金文字。見本 x699〜802・y3195〜3260） */
+.sim-m2-num2{
+  left: 697px;
+  top: 515px;
+  font-weight: 900;
+  font-size: 85.71px;
+  letter-spacing: 5.57px;
+  color: #f1a803;
+}
+
+/* 「万円」（金文字。見本 x806〜902・y3213〜3257） */
+.sim-m2-unit2{
+  left: 805px;
+  top: 540px;
+  font-weight: 900;
+  font-size: 50.03px;
+  letter-spacing: 1.44px;
+  color: #f2a905;
+}
+
+/* 「3〜6ヶ月目も」（灰文字。見本 x107〜306・y3283〜3313） */
+.sim-mid1-a{
+  left: 106.04px;
+  top: 613px;
+  font-weight: 800;
+  font-size: 34.07px;
+  letter-spacing: 0.36px;
+  transform: scaleX(0.957);
+  color: #444e60;
+}
+
+/* 「月収26万〜33万円台」（灰文字。見本 x318〜628・y3282〜3313） */
+.sim-mid1-b{
+  left: 317px;
+  top: 614px;
+  font-weight: 700;
+  font-size: 34.04px;
+  letter-spacing: -0.53px;
+  color: #444d5f;
+}
+
+/* 「7ヶ月目」（紺文字。見本 x109〜248・y3377〜3417） */
+.sim-m7{
+  left: 107px;
+  top: 705px;
+  font-weight: 800;
+  font-size: 46.18px;
+  letter-spacing: -6.05px;
+  color: #042143;
+}
+
+/* 「月収」（白文字。見本 x341〜415・y3386〜3422） */
+.sim-c1-label{
+  left: 28px;
+  top: 36px;
+  font-weight: 900;
+  font-size: 39.36px;
+  letter-spacing: -2.15px;
+  color: #fbfcfd;
+}
+
+/* 「30」（金文字。見本 x557〜652・y3370〜3432） */
+.sim-c1-a{
+  left: 243px;
+  top: 13px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 86.3px;
+  letter-spacing: 2.07px;
+  color: #fdcf0b;
+}
+
+/* 「万」（金文字。見本 x656〜705・y3385〜3431） */
+.sim-c1-b{
+  left: 342.98px;
+  top: 31px;
+  font-weight: 900;
+  font-size: 53.41px;
+  transform: scaleX(1.018);
+  color: #fccf0b;
+}
+
+/* 「5,430」（金文字。見本 x713〜912・y3371〜3438） */
+.sim-c1-c{
+  left: 399px;
+  top: 13px;
+  font-weight: 900;
+  font-size: 69.4px;
+  letter-spacing: 2.79px;
+  color: #fdcf0b;
+}
+
+/* 「円」（金文字。見本 x918〜958・y3388〜3430） */
+.sim-c1-d{
+  left: 602.1px;
+  top: 36px;
+  font-weight: 900;
+  font-size: 47.75px;
+  transform: scaleX(0.976);
+  color: #fbd009;
+}
+
+/* 「6ヶ月満了特別手当」（白文字。見本 x340〜607・y3471〜3502） */
+.sim-c1-r1{
+  left: 26px;
+  top: 123px;
+  font-weight: 900;
+  font-size: 33.33px;
+  letter-spacing: -1.79px;
+  color: #fbfcfd;
+}
+
+/* 「60」（金文字。見本 x648〜716・y3463〜3507） */
+.sim-c1-r1n{
+  left: 333px;
+  top: 107px;
+  font-weight: 900;
+  font-size: 58.44px;
+  letter-spacing: 2.96px;
+  color: #fccf0a;
+}
+
+/* 「万円」（金文字。見本 x721〜794・y3473〜3508） */
+.sim-c1-r1u{
+  left: 408.04px;
+  top: 122px;
+  font-weight: 900;
+  font-size: 40.91px;
+  letter-spacing: -1.13px;
+  transform: scaleX(0.957);
+  color: #fbcf08;
+}
+
+/* 「満了慰労金」（白文字。見本 x341〜515・y3526〜3559） */
+.sim-c1-r2{
+  left: 28px;
+  top: 177px;
+  font-weight: 900;
+  font-size: 35.45px;
+  letter-spacing: -0.32px;
+  color: #fbfdfd;
+}
+
+/* 「21」（金文字。見本 x650〜703・y3521〜3560） */
+.sim-c1-r2a{
+  left: 336px;
+  top: 169px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 55.59px;
+  letter-spacing: 1.63px;
+  color: #fccd0a;
+}
+
+/* 「万」（金文字。見本 x714〜749・y3528〜3562） */
+.sim-c1-r2b{
+  left: 401.02px;
+  top: 177px;
+  font-weight: 900;
+  font-size: 40.94px;
+  transform: scaleX(0.984);
+  color: #facf0a;
+}
+
+/* 「5,900」（金文字。見本 x756〜891・y3521〜3567） */
+.sim-c1-r2c{
+  left: 443px;
+  top: 166px;
+  font-weight: 800;
+  font-size: 49px;
+  letter-spacing: 1.37px;
+  color: #fcd00b;
+}
+
+/* 「円」（金文字。見本 x896〜928・y3529〜3563） */
+.sim-c1-r2d{
+  left: 581.11px;
+  top: 178px;
+  font-weight: 900;
+  font-size: 38.67px;
+  transform: scaleX(0.965);
+  color: #fbce0a;
+}
+
+/* 「満了報奨金」（白文字。見本 x341〜515・y3580〜3614） */
+.sim-c1-r3{
+  left: 28.05px;
+  top: 232px;
+  font-weight: 900;
+  font-size: 36.84px;
+  letter-spacing: 0.46px;
+  transform: scaleX(0.951);
+  color: #fbfdfd;
+}
+
+/* 「19」（金文字。見本 x652〜709・y3577〜3619） */
+.sim-c1-r3a{
+  left: 335px;
+  top: 225px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 59.75px;
+  letter-spacing: -3.57px;
+  color: #fcd009;
+}
+
+/* 「万」（金文字。見本 x713〜749・y3585〜3619） */
+.sim-c1-r3b{
+  left: 399.99px;
+  top: 234px;
+  font-weight: 900;
+  font-size: 40.94px;
+  transform: scaleX(1.011);
+  color: #f9ce08;
+}
+
+/* 「500」（金文字。見本 x755〜851・y3578〜3619） */
+.sim-c1-r3c{
+  left: 441px;
+  top: 223px;
+  font-weight: 900;
+  font-size: 54.55px;
+  letter-spacing: 1px;
+  color: #fccf09;
+}
+
+/* 「円」（金文字。見本 x857〜888・y3587〜3620） */
+.sim-c1-r3d{
+  left: 542.11px;
+  top: 236px;
+  font-weight: 900;
+  font-size: 37.54px;
+  transform: scaleX(0.963);
+  color: #fbd109;
+}
+
+/* 「総額」（白文字。見本 x341〜481・y3643〜3711） */
+.sim-c1-total{
+  left: 28px;
+  top: 292px;
+  font-weight: 900;
+  font-size: 72.63px;
+  letter-spacing: -2.81px;
+  color: #fcfdfd;
+}
+
+/* 「100」（金文字。見本 x512〜685・y3637〜3717） */
+.sim-c1-tn{
+  left: 191px;
+  top: 278px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 110.96px;
+  letter-spacing: -2.38px;
+  color: #fed00d;
+}
+
+/* 「万円以上！」（金文字。見本 x690〜957・y3660〜3716） */
+.sim-c1-tu{
+  left: 377px;
+  top: 309px;
+  font-weight: 900;
+  font-size: 60.23px;
+  letter-spacing: -2.02px;
+  color: #fccf0a;
+}
+
+/* 「8〜12ヶ月目も」（灰文字。見本 x106〜316・y3762〜3791） */
+.sim-mid2-a{
+  left: 104.09px;
+  top: 1093px;
+  font-weight: 700;
+  font-size: 32.97px;
+  letter-spacing: 0.45px;
+  transform: scaleX(0.956);
+  color: #434c5e;
+}
+
+/* 「月収29万〜32万円台」（灰文字。見本 x328〜634・y3761〜3791） */
+.sim-mid2-b{
+  left: 327px;
+  top: 1093px;
+  font-weight: 900;
+  font-size: 32.63px;
+  letter-spacing: 0.16px;
+  color: #444d5e;
+}
+
+/* 「13ヶ月目」（紺文字。見本 x109〜276・y3851〜3892） */
+.sim-m13{
+  left: 105.34px;
+  top: 1179px;
+  font-weight: 900;
+  font-size: 46.15px;
+  letter-spacing: -0.03px;
+  transform: scaleX(0.914);
+  color: #042143;
+}
+
+/* 「月収」（白文字。見本 x341〜416・y3854〜3890） */
+.sim-c2-label{
+  left: 28px;
+  top: 33px;
+  font-weight: 900;
+  font-size: 39.36px;
+  letter-spacing: -1.15px;
+  color: #f9fbfb;
+}
+
+/* 「28」（金文字。見本 x556〜650・y3838〜3901） */
+.sim-c2-a{
+  left: 241px;
+  top: 11px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 87.69px;
+  letter-spacing: 0.41px;
+  color: #fdcf0b;
+}
+
+/* 「万」（金文字。見本 x655〜705・y3853〜3900） */
+.sim-c2-b{
+  left: 341.98px;
+  top: 29px;
+  font-weight: 900;
+  font-size: 54.55px;
+  transform: scaleX(1.016);
+  color: #fcd009;
+}
+
+/* 「3,130」（金文字。見本 x712〜903・y3840〜3907） */
+.sim-c2-c{
+  left: 398px;
+  top: 11px;
+  font-weight: 900;
+  font-size: 69.4px;
+  letter-spacing: 0.8px;
+  color: #fdd00c;
+}
+
+/* 「円」（金文字。見本 x909〜952・y3855〜3900） */
+.sim-c2-d{
+  left: 593.08px;
+  top: 32px;
+  font-weight: 900;
+  font-size: 51.16px;
+  transform: scaleX(0.979);
+  color: #fbcf0b;
+}
+
+/* 「満了慰労金」（白文字。見本 x341〜514・y3935〜3967） */
+.sim-c2-r1{
+  left: 28px;
+  top: 116px;
+  font-weight: 900;
+  font-size: 34.38px;
+  letter-spacing: 0.79px;
+  color: #fbfcfd;
+}
+
+/* 「32」（金文字。見本 x650〜709・y3930〜3971） */
+.sim-c2-r1a{
+  left: 337px;
+  top: 107px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 56.19px;
+  letter-spacing: -1.89px;
+  color: #fcd009;
+}
+
+/* 「万」（金文字。見本 x714〜749・y3937〜3971） */
+.sim-c2-r1b{
+  left: 401.03px;
+  top: 115px;
+  font-weight: 700;
+  font-size: 40.7px;
+  transform: scaleX(0.972);
+  color: #fbcf09;
+}
+
+/* 「7,500」（金文字。見本 x755〜888・y3930〜3976） */
+.sim-c2-r1c{
+  left: 440px;
+  top: 104px;
+  font-weight: 800;
+  font-size: 49px;
+  letter-spacing: 1.37px;
+  color: #fccf08;
+}
+
+/* 「円」（金文字。見本 x894〜926・y3938〜3971） */
+.sim-c2-r1d{
+  left: 578.99px;
+  top: 116px;
+  font-weight: 800;
+  font-size: 38.68px;
+  transform: scaleX(1.005);
+  color: #fbd108;
+}
+
+/* 「満了報奨金」（白文字。見本 x341〜514・y3988〜4021） */
+.sim-c2-r2{
+  left: 28px;
+  top: 169px;
+  font-weight: 900;
+  font-size: 35.79px;
+  letter-spacing: -0.97px;
+  color: #fbfcfd;
+}
+
+/* 「19」（金文字。見本 x652〜709・y3987〜4028） */
+.sim-c2-r2a{
+  left: 335px;
+  top: 163px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 58.33px;
+  letter-spacing: -2.08px;
+  color: #fdcf09;
+}
+
+/* 「万」（金文字。見本 x713〜749・y3993〜4028） */
+.sim-c2-r2b{
+  left: 400.02px;
+  top: 171px;
+  font-weight: 900;
+  font-size: 40.94px;
+  transform: scaleX(0.983);
+  color: #f9d10b;
+}
+
+/* 「500」（金文字。見本 x754〜849・y3987〜4028） */
+.sim-c2-r2c{
+  left: 440px;
+  top: 161px;
+  font-weight: 900;
+  font-size: 54.55px;
+  letter-spacing: 0.5px;
+  color: #fcd008;
+}
+
+/* 「円」（金文字。見本 x855〜886・y3996〜4028） */
+.sim-c2-r2d{
+  left: 540.02px;
+  top: 174px;
+  font-weight: 900;
+  font-size: 37.54px;
+  transform: scaleX(0.992);
+  color: #fbcf09;
+}
+
+/* 「総額」（白文字。見本 x341〜480・y4048〜4114） */
+.sim-c2-total{
+  left: 28px;
+  top: 225px;
+  font-weight: 900;
+  font-size: 70.53px;
+  letter-spacing: 0.36px;
+  color: #fcfdfd;
+}
+
+/* 「75」（金文字。見本 x530〜642・y4042〜4117） */
+.sim-c2-tn{
+  left: 215px;
+  top: 211px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 105.56px;
+  letter-spacing: -2.06px;
+  color: #fdcf0c;
+}
+
+/* 「万円以上！」（金文字。見本 x649〜926・y4059〜4117） */
+.sim-c2-tu{
+  left: 336px;
+  top: 237px;
+  font-weight: 900;
+  font-size: 62.38px;
+  letter-spacing: -1.98px;
+  color: #fdd00a;
+}
+
+/* 「※5/13入社を想定した例です。月収は勤務日数により変わります。」（灰文字。見本 x54〜810・y4158〜4183） */
+.sim-note{
+  left: 50px;
+  top: 1490px;
+  font-weight: 700;
+  font-size: 25.24px;
+  letter-spacing: 0.68px;
+  color: #434b5e;
+}
+

@@ -1,0 +1,280 @@
+/* ===== hero：ヘッダー帯＋ファーストビュー＋数字3列＋正社員登用の行（見本 y0〜1282） ===== */
+
+/* 区画の地（見本 y50・y1000 の紺を実測）と高さの保証 */
+section[data-unit="hero"]{
+  height: 1282px;
+  background: #072646;
+}
+
+/* 文字の共通（位置は下で1つずつ指定。行の高さ1で左上を基準に置く） */
+.hero-t{
+  position: absolute;
+  display: block;
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  transform-origin: 0 0;
+  /* 色のにじみ（サブピクセル描画）を止めて、見本と同じ灰色のふち取りにする */
+  -webkit-font-smoothing: antialiased;
+  will-change: transform;
+}
+
+/* ヘッダー帯（見本 y0〜95） */
+.hero-header{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1024px;
+  height: 96px;
+  /* 写真との境目の1行（見本 y95 は少し暗い紺） */
+  border-bottom: 1px solid #04203f;
+}
+
+/* 右上の小さい応募ボタン（見本 x746〜987・y10〜81 が面、y82〜86 が下の厚み。縁はクリーム色3px） */
+.hero-btn{
+  position: absolute;
+  left: 746px;
+  top: 10px;
+  width: 242px;
+  height: 72px;
+  border: 3px solid #fce796;
+  border-radius: 36px;
+  background: linear-gradient(to bottom, #fe940d 0, #fe6b08 32px, #fe4e01 65px, #fe4e01 100%);
+  box-shadow: 0 5px 0 #cd4a02, 0 6px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ボタンの「›」（見本 x950〜964・y34〜59） */
+.hero-btn-arrow{
+  position: absolute;
+  left: 201px;
+  top: 21px;
+  width: 16px;
+  height: 26px;
+}
+
+/* ファーストビューの写真（見本 y96〜905。文字を抜いた素材を敷く） */
+.hero-photo{
+  position: absolute;
+  left: 0;
+  top: 96px;
+  width: 1024px;
+  height: 810px;
+}
+
+/* 見出し3行のまとまり（文字は下で個別に配置） */
+.hero-copy{
+  margin: 0;
+  font-size: 0;
+}
+
+/* 数字3列の縦の区切り線（見本 x349・x674〜675、y962〜1142） */
+.hero-vline{
+  position: absolute;
+  top: 962px;
+  width: 1px;
+  height: 180px;
+  background: #c3cfd8;
+}
+
+.hero-vline--1{
+  left: 349px;
+}
+
+.hero-vline--2{
+  left: 674px;
+  width: 2px;
+  background: #8996a6;
+}
+
+/* 数字3列と正社員登用の行を分ける横線（見本 x38〜985。y1168〜1171 の4行の色を実測: 暗・中間・明・暗） */
+.hero-hline{
+  position: absolute;
+  left: 38px;
+  top: 1168px;
+  width: 948px;
+  height: 4px;
+  background: linear-gradient(to bottom, #031e3e 0, #031e3e 1px, #344e67 1px, #344e67 2px, #aab6c2 2px, #aab6c2 3px, #031a38 3px);
+}
+
+/* 数字3列のリスト（並びの意味だけ持たせ、見た目は個別配置） */
+.hero-stats{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ===== ここから文字の位置・大きさ（見本のインクの外接矩形を実測して当てはめた値）===== */
+/* 「ソクワーク工場」（白文字。見本 x40〜321・y27〜64） */
+.hero-logo{
+  left: 36px;
+  top: 24px;
+  font-weight: 800;
+  font-size: 40.86px;
+  letter-spacing: 0.15px;
+  color: #ffffff;
+}
+
+/* 「応募はこちら」（白文字。見本 x780〜931・y33〜59） */
+.hero-btn-label{
+  left: 30.06px;
+  top: 18px;
+  font-weight: 800;
+  font-size: 28.72px;
+  letter-spacing: -1.34px;
+  transform: scaleX(0.943);
+  color: #feffff;
+}
+
+/* 「トヨタ期間従業員」（白文字。見本 x61〜429・y566〜610） */
+.hero-kicker{
+  left: 46px;
+  top: 563px;
+  font-weight: 700;
+  font-size: 47.87px;
+  letter-spacing: 0.33px;
+  color: #fcfcfc;
+}
+
+/* 「未経験から、」（白文字。見本 x41〜638・y635〜746） */
+.hero-lead1{
+  left: 39px;
+  top: 626px;
+  font-weight: 900;
+  font-size: 117.72px;
+  letter-spacing: -6.51px;
+  color: #fcfcfc;
+}
+
+/* 「トヨタで本気で稼ぐ。」（白文字。見本 x54〜983・y765〜877） */
+.hero-lead2{
+  left: 20px;
+  top: 757px;
+  font-weight: 900;
+  font-size: 116.49px;
+  letter-spacing: -14.07px;
+  color: #fcfcfc;
+}
+
+/* 「年収例」（白文字。見本 x115〜242・y974〜1016） */
+.hero-s1-label{
+  left: 113.09px;
+  top: 971px;
+  font-weight: 900;
+  font-size: 45.86px;
+  letter-spacing: 0.67px;
+  transform: scaleX(0.953);
+  color: #fbfbfc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「560」（金文字。見本 x39〜238・y1034〜1129） */
+.hero-s1-num{
+  left: 34.23px;
+  top: 1018px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 131.51px;
+  letter-spacing: -4.22px;
+  transform: scaleX(0.954);
+  color: #fcc102;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「万円」（金文字。見本 x246〜319・y1080〜1127） */
+.hero-s1-unit{
+  left: 245.28px;
+  top: 1073px;
+  font-weight: 900;
+  font-size: 54.55px;
+  letter-spacing: -1.61px;
+  transform: scaleX(0.717);
+  color: #fac203;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「祝い金総額」（白文字。見本 x406〜619・y974〜1016） */
+.hero-s2-label{
+  left: 405.07px;
+  top: 971px;
+  font-weight: 900;
+  font-size: 45.86px;
+  letter-spacing: 0.46px;
+  transform: scaleX(0.934);
+  color: #fbfcfc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「100」（金文字。見本 x384〜566・y1034〜1129） */
+.hero-s2-num{
+  left: 373.63px;
+  top: 1018px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 131.51px;
+  letter-spacing: -8.92px;
+  transform: scaleX(0.943);
+  color: #fcc202;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「万円」（金文字。見本 x575〜647・y1080〜1127） */
+.hero-s2-unit{
+  left: 574.3px;
+  top: 1073px;
+  font-weight: 900;
+  font-size: 54.55px;
+  letter-spacing: -0.06px;
+  transform: scaleX(0.697);
+  color: #f9c203;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「寮費無料」（白文字。見本 x709〜990・y1014〜1099） */
+.hero-s3{
+  left: 706.69px;
+  top: 1008px;
+  font-weight: 900;
+  font-size: 89.58px;
+  letter-spacing: 4.13px;
+  transform: scaleX(0.771);
+  color: #fdfdfd;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「正社員登用は過去5年間で」（白文字。見本 x103〜668・y1210〜1257） */
+.hero-seiki-a{
+  left: 101.14px;
+  top: 1206px;
+  font-weight: 900;
+  font-size: 50px;
+  letter-spacing: 3.12px;
+  transform: scaleX(0.928);
+  color: #fbfcfc;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「1,022」（白文字。見本 x678〜843・y1203〜1270） */
+.hero-seiki-num{
+  left: 672px;
+  top: 1195px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 73.91px;
+  letter-spacing: -4.14px;
+  color: #fdfdfd;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* 「名！」（白文字。見本 x851〜917・y1209〜1257） */
+.hero-seiki-b{
+  left: 850.07px;
+  top: 1206px;
+  font-weight: 900;
+  font-size: 51.04px;
+  letter-spacing: -8.67px;
+  transform: scaleX(0.935);
+  color: #fcfcfd;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+

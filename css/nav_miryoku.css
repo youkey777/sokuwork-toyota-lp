@@ -1,0 +1,369 @@
+/* ===== nav_miryoku：セクションジャンプ＋トヨタ期間従業員の魅力（見本 y1653〜2666） ===== */
+
+/* 区画の地（見本 y1660 の白を実測）と高さの保証 */
+section[data-unit="nav_miryoku"]{
+  height: 1013px;
+  background: #fdfefe;
+}
+
+/* 区画の上端の影の名残り（見本 y1653 が紺・y1654 が灰） */
+section[data-unit="nav_miryoku"]::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1024px;
+  height: 1px;
+  background: #061b3a;
+  box-shadow: 0 1px 0 #c1c8d2;
+}
+
+/* 文字の共通 */
+.nav_miryoku-t{
+  position: absolute;
+  display: block;
+  margin: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  line-height: 1;
+  white-space: nowrap;
+  transform-origin: 0 0;
+  /* 色のにじみ（サブピクセル描画）を止めて、見本と同じ灰色のふち取りにする */
+  -webkit-font-smoothing: antialiased;
+  will-change: transform;
+}
+
+/* ジャンプの4つの並び */
+.nav_miryoku-jump{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ジャンプ1つ分の押せる範囲（見本の区切り線の間・y1752〜1886） */
+.nav_miryoku-jump a{
+  position: absolute;
+  top: 99px;
+  height: 135px;
+}
+
+.nav_miryoku-jump li:nth-child(1) a{
+  left: 29px;
+  width: 239px;
+}
+
+.nav_miryoku-jump li:nth-child(2) a{
+  left: 270px;
+  width: 240px;
+}
+
+.nav_miryoku-jump li:nth-child(3) a{
+  left: 512px;
+  width: 249px;
+}
+
+.nav_miryoku-jump li:nth-child(4) a{
+  left: 763px;
+  width: 232px;
+}
+
+/* 区切りの縦線（見本 x27・268・510・761・995 の幅2px、y1752〜1886） */
+.nav_miryoku-vline{
+  position: absolute;
+  top: 99px;
+  width: 2px;
+  height: 135px;
+  background: #c5ccd5;
+}
+
+.nav_miryoku-vline--1{
+  left: 27px;
+}
+
+.nav_miryoku-vline--2{
+  left: 268px;
+}
+
+.nav_miryoku-vline--3{
+  left: 510px;
+}
+
+.nav_miryoku-vline--4{
+  left: 761px;
+}
+
+.nav_miryoku-vline--5{
+  left: 995px;
+}
+
+/* 下向きの矢印（見本 51×31・y1836〜1867。押せる範囲の上端 y1752 から84px下） */
+.nav_miryoku-chev{
+  position: absolute;
+  top: 84px;
+  width: 51px;
+  height: 31px;
+}
+
+.nav_miryoku-jump li:nth-child(1) .nav_miryoku-chev{
+  left: 92px;
+}
+
+.nav_miryoku-jump li:nth-child(2) .nav_miryoku-chev{
+  left: 93px;
+}
+
+.nav_miryoku-jump li:nth-child(3) .nav_miryoku-chev{
+  left: 95px;
+}
+
+.nav_miryoku-jump li:nth-child(4) .nav_miryoku-chev{
+  left: 93px;
+}
+
+/* 魅力の帯（見本 y1924〜2665。文字を抜いた写真を敷く） */
+.nav_miryoku-band{
+  position: absolute;
+  left: 0;
+  top: 271px;
+  width: 1024px;
+  height: 742px;
+  background: #082747 url("../img/nav_miryoku/miryoku_band.jpg") no-repeat 0 0 / 1024px 742px;
+}
+
+/* 見出しの下線（見本 y2190〜2192・x53〜599。白の細線） */
+.nav_miryoku-band-line{
+  position: absolute;
+  left: 53px;
+  top: 266px;
+  width: 547px;
+  height: 3px;
+  background: linear-gradient(to bottom, rgba(250, 251, 252, 0.25) 0, rgba(250, 251, 252, 0.25) 1px, #fafbfc 1px, #fafbfc 2px, rgba(250, 251, 252, 0.45) 2px);
+}
+
+/* 金額の行のまとまり */
+.nav_miryoku-rows{
+  margin: 0;
+  font-size: 0;
+}
+
+/* ===== ここから文字の位置・大きさ（見本のインクの外接矩形を実測して当てはめた値）===== */
+/* 「気になるセクションに早速ジャンプ！」（紺文字。見本 x162〜861・y1679〜1725） */
+.nav_miryoku-title{
+  left: 160px;
+  top: 23px;
+  font-weight: 800;
+  font-size: 48.45px;
+  letter-spacing: -6.13px;
+  color: #031833;
+}
+
+/* 「高収入」（紺文字。見本 x75〜219・y1763〜1809） */
+.nav_miryoku-j1{
+  left: 43px;
+  top: 8px;
+  font-weight: 900;
+  font-size: 48.96px;
+  letter-spacing: 1.02px;
+  color: #031834;
+}
+
+/* 「個室寮」（紺文字。見本 x317〜460・y1763〜1809） */
+.nav_miryoku-j2{
+  left: 46px;
+  top: 8px;
+  font-weight: 800;
+  font-size: 48.96px;
+  letter-spacing: 0.25px;
+  color: #021935;
+}
+
+/* 「研修制度」（紺文字。見本 x550〜724・y1763〜1808） */
+.nav_miryoku-j3{
+  left: 37.11px;
+  top: 8px;
+  font-weight: 900;
+  font-size: 47.92px;
+  letter-spacing: 2.3px;
+  transform: scaleX(0.894);
+  color: #031834;
+}
+
+/* 「募集要項」（紺文字。見本 x797〜967・y1763〜1807） */
+.nav_miryoku-j4{
+  left: 33.11px;
+  top: 8px;
+  font-weight: 900;
+  font-size: 47.95px;
+  letter-spacing: 0.38px;
+  transform: scaleX(0.893);
+  color: #031836;
+}
+
+/* 「トヨタ期間従業員の魅力」（白文字。見本 x57〜734・y2035〜2111） */
+.nav_miryoku-band-title{
+  left: 38.37px;
+  top: 105px;
+  font-weight: 900;
+  font-size: 80.21px;
+  letter-spacing: -1.63px;
+  transform: scaleX(0.81);
+  color: #fcfcfc;
+}
+
+/* 「未経験から、しっかり稼げる待遇。」（白文字。見本 x57〜702・y2130〜2172） */
+.nav_miryoku-band-sub{
+  left: 56px;
+  top: 203px;
+  font-weight: 900;
+  font-size: 44.79px;
+  letter-spacing: -2.74px;
+  color: #fcfcfc;
+}
+
+/* 「年収例」（白文字。見本 x54〜176・y2331〜2371） */
+.nav_miryoku-r1-label{
+  left: 52px;
+  top: 404px;
+  font-weight: 900;
+  font-size: 42.71px;
+  letter-spacing: -0.64px;
+  color: #fbfcfc;
+}
+
+/* 「560」（金文字。見本 x204〜453・y2298〜2408） */
+.nav_miryoku-r1-num{
+  left: 200px;
+  top: 349px;
+  font-weight: 900;
+  font-size: 144.16px;
+  letter-spacing: -1.86px;
+  color: #fcbd07;
+}
+
+/* 「万円」（金文字。見本 x462〜574・y2349〜2404） */
+.nav_miryoku-r1-unit{
+  left: 461.06px;
+  top: 417px;
+  font-weight: 900;
+  font-size: 62.52px;
+  letter-spacing: 0.54px;
+  transform: scaleX(0.939);
+  color: #fcbd08;
+}
+
+/* 「以上」（金文字。見本 x581〜660・y2364〜2404） */
+.nav_miryoku-r1-ijo{
+  left: 580.08px;
+  top: 436px;
+  font-weight: 900;
+  font-size: 44.09px;
+  letter-spacing: 1.01px;
+  transform: scaleX(0.921);
+  color: #fcbd08;
+}
+
+/* 「入社祝い金総額」（白文字。見本 x54〜320・y2463〜2499） */
+.nav_miryoku-r2-label{
+  left: 52px;
+  top: 536px;
+  font-weight: 900;
+  font-size: 38.54px;
+  letter-spacing: -0.04px;
+  color: #fcfcfc;
+}
+
+/* 「100」（金文字。見本 x340〜546・y2434〜2534） */
+.nav_miryoku-r2-num{
+  left: 330px;
+  top: 487px;
+  font-weight: 900;
+  font-size: 131.17px;
+  letter-spacing: -8.65px;
+  color: #fcbd07;
+}
+
+/* 「万円」（金文字。見本 x556〜666・y2479〜2532） */
+.nav_miryoku-r2-unit{
+  left: 555.04px;
+  top: 547px;
+  font-weight: 900;
+  font-size: 60.24px;
+  letter-spacing: -0.06px;
+  transform: scaleX(0.957);
+  color: #fcbd08;
+}
+
+/* 「入社時特別手当」（白文字。見本 x53〜302・y2574〜2610） */
+.nav_miryoku-r3-label{
+  left: 52.07px;
+  top: 648px;
+  font-weight: 800;
+  font-size: 38.32px;
+  letter-spacing: 1.03px;
+  transform: scaleX(0.926);
+  color: #fbfcfc;
+}
+
+/* 「40」（金文字。見本 x316〜392・y2565〜2616） */
+.nav_miryoku-r3-num{
+  left: 314px;
+  top: 632px;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 71.23px;
+  letter-spacing: -0.64px;
+  color: #fcbd05;
+}
+
+/* 「万円」（金文字。見本 x398〜470・y2578〜2614） */
+.nav_miryoku-r3-unit{
+  left: 397.07px;
+  top: 648px;
+  font-weight: 900;
+  font-size: 42.05px;
+  letter-spacing: -2.05px;
+  transform: scaleX(0.931);
+  color: #fabf05;
+}
+
+/* 「＋」（白文字。見本 x499〜530・y2579〜2611） */
+.nav_miryoku-r3-plus{
+  left: 492.21px;
+  top: 647px;
+  font-weight: 800;
+  font-size: 45.75px;
+  transform: scaleX(0.97);
+  color: #f9fafb;
+}
+
+/* 「6ヶ月満了手当」（白文字。見本 x557〜789・y2576〜2612） */
+.nav_miryoku-r3-label2{
+  left: 555.14px;
+  top: 649px;
+  font-weight: 900;
+  font-size: 38.54px;
+  letter-spacing: 0.2px;
+  transform: scaleX(0.929);
+  color: #fcfcfb;
+}
+
+/* 「60」（金文字。見本 x807〜884・y2567〜2616） */
+.nav_miryoku-r3-num2{
+  left: 804px;
+  top: 632px;
+  font-weight: 900;
+  font-size: 64.94px;
+  letter-spacing: 4.62px;
+  color: #fcbd08;
+}
+
+/* 「万円」（金文字。見本 x891〜968・y2577〜2615） */
+.nav_miryoku-r3-unit2{
+  left: 890.07px;
+  top: 647px;
+  font-weight: 900;
+  font-size: 44.32px;
+  letter-spacing: -1.58px;
+  transform: scaleX(0.932);
+  color: #fcbd08;
+}
+

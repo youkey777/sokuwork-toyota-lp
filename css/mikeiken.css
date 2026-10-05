@@ -1,0 +1,215 @@
+/* 太さを細かく合わせるため、Noto Sans JP を太さ自由（100〜900）の形でも読み込む */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+
+/* ===== mikeiken: Q.未経験でも大丈夫？＋研修写真＋業務内容＋プレス（見本 y10440〜11825）===== */
+
+/* 区画の高さ（見本 11855−10470） */
+section[data-unit="mikeiken"]{
+  height: 1385px;
+  background: #fdfdfd;
+}
+
+/* 文字は全部この共通の置き方（見本の位置に1行ずつ置く） */
+.mikeiken-t{
+  position: absolute;
+  display: block;
+  line-height: 1;
+  white-space: nowrap;
+  font-feature-settings: "palt" 1;
+  will-change: transform;
+}
+
+.mikeiken-lead,
+.mikeiken-body,
+.mikeiken-kenshu{
+  position: static;
+}
+
+/* Q.の紺帯（見本 y10470〜10581 を実測 #0e2642） */
+.mikeiken-band1{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1024px;
+  height: 113px;
+  background: #0e2642;
+  border-bottom: 1px solid #061836;
+}
+
+/* 紺帯の下の細い影（見本 y10583 と y10585〜10588） */
+.mikeiken-band1::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 113px;
+  width: 1024px;
+  height: 6px;
+  background: linear-gradient(#969fae 0, #969fae 1px, #fcfcfc 1px, #fcfcfc 2px, #f1f2f4 2px, #fbfcfc 6px);
+}
+
+/* 研修の写真（見本 y10766〜11155 の切り出し） */
+.mikeiken-photo1{
+  position: absolute;
+  left: 0;
+  top: 296px;
+}
+
+/* 業務内容の紺帯（見本 y11156〜11268 を実測 #0c2440） */
+.mikeiken-band2{
+  position: absolute;
+  left: 0;
+  top: 686px;
+  width: 1024px;
+  height: 113px;
+  background: #0c2440;
+}
+
+/* 業務内容の見出しの影（見本の白文字の右下に細い暗い縁） */
+.mikeiken-h2{
+  text-shadow: 1px 1px 1px rgba(0, 5, 25, 0.8);
+}
+
+/* プレスの写真（見本 y11269〜11601 の切り出し） */
+.mikeiken-photo2{
+  position: absolute;
+  left: 0;
+  top: 799px;
+}
+
+/* 写真の下の薄い影（見本 y11603〜11605） */
+.mikeiken-body::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1133px;
+  width: 1024px;
+  height: 3px;
+  background: linear-gradient(#f2f2f4, #f9f9f9);
+}
+
+/* 区画の下端の影と境界線（見本 y11850〜11854） */
+.mikeiken-body::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1380px;
+  width: 1024px;
+  height: 5px;
+  background: linear-gradient(#f8f9f9 0, #f4f4f5 3px, #fafbfb 3px, #fafbfb 4px, #8d96a6 4px);
+}
+
+.mikeiken-presshead{
+  font-size: inherit;
+}
+
+/* 「Q. 未経験でも大丈夫？どん」 見本の文字の箱 x174〜832・y10471〜10509 に合わせて実測 */
+.mikeiken-q{
+  left: 173.2px;
+  top: 28.3px;
+  font-size: 41.00px;
+  font-weight: 900;
+  letter-spacing: 1.76px;
+  color: #f9f9fa;
+}
+
+/* 「トヨタでは未経験の方も安心し」 見本の文字の箱 x54〜951・y10584〜10617 に合わせて実測 */
+.mikeiken-p1{
+  left: 46.3px;
+  top: 140.7px;
+  font-size: 35.80px;
+  font-weight: 700;
+  letter-spacing: -0.21px;
+  color: #092445;
+}
+
+/* 「フォロー体制を確立。入社時の」 見本の文字の箱 x51〜972・y10631〜10663 に合わせて実測 */
+.mikeiken-p2{
+  left: 48.9px;
+  top: 188.8px;
+  font-size: 34.54px;
+  font-weight: 700;
+  letter-spacing: 1.24px;
+  color: #082344;
+}
+
+/* 「実践的な知識をイチからしっか」 見本の文字の箱 x50〜702・y10677〜10710 に合わせて実測 */
+.mikeiken-p3{
+  left: 48.3px;
+  top: 234.7px;
+  font-size: 35.44px;
+  font-weight: 700;
+  letter-spacing: 0.43px;
+  color: #082344;
+}
+
+/* 「トヨタ期間従業員の業務内容」 見本の文字の箱 x97〜932・y11154〜11215 に合わせて実測 */
+.mikeiken-h2{
+  left: 85.9px;
+  top: 23.8px;
+  font-size: 65.01px;
+  font-weight: 900;
+  letter-spacing: 2.69px;
+  color: #f9f9fb;
+}
+
+/* 「プレス」 見本の文字の箱 x50〜197・y11589〜11640 に合わせて実測 */
+.mikeiken-press{
+  left: 47.2px;
+  top: 1144.5px;
+  font-size: 55.66px;
+  font-weight: 900;
+  letter-spacing: -1.02px;
+  color: #0a2644;
+}
+
+/* 「巨大プレス機で鋼板に圧力を加」 見本の文字の箱 x51〜979・y11660〜11689 に合わせて実測 */
+.mikeiken-b1{
+  left: 47.5px;
+  top: 1218.0px;
+  font-size: 31.74px;
+  font-weight: 500;
+  letter-spacing: 0.60px;
+  color: #082245;
+}
+
+/* 「部品を作ります。加工後の部品」 見本の文字の箱 x50〜979・y11701〜11730 に合わせて実測 */
+.mikeiken-b2{
+  left: 49.5px;
+  top: 1259.0px;
+  font-size: 31.90px;
+  font-weight: 500;
+  letter-spacing: -0.38px;
+  color: #072045;
+}
+
+/* 「します。作業中に大きな部品を」 見本の文字の箱 x54〜954・y11742〜11771 に合わせて実測 */
+.mikeiken-b3{
+  left: 49.5px;
+  top: 1300.0px;
+  font-size: 31.74px;
+  font-weight: 500;
+  letter-spacing: 1.16px;
+  color: #082145;
+}
+
+/* 「必要とされます。」 見本の文字の箱 x49〜272・y11783〜11811 に合わせて実測 */
+.mikeiken-b4{
+  left: 48.0px;
+  top: 1340.0px;
+  font-size: 31.00px;
+  font-weight: 500;
+  letter-spacing: 1.44px;
+  color: #072044;
+}
+
+.mikeiken-t{visibility: hidden;}
+.mikeiken-q{visibility: visible;}
+.mikeiken-p1{visibility: visible;}
+.mikeiken-p2{visibility: visible;}
+.mikeiken-p3{visibility: visible;}
+.mikeiken-h2{visibility: visible;}
+.mikeiken-press{visibility: visible;}
+.mikeiken-b1{visibility: visible;}
+.mikeiken-b2{visibility: visible;}
+.mikeiken-b3{visibility: visible;}
+.mikeiken-b4{visibility: visible;}

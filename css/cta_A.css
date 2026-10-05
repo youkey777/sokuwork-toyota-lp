@@ -1,0 +1,20 @@
+/* 応募ボタン cta_A（見本 y=1282〜1653）。部品は cta.css、ここは地の色と位置だけ */
+
+/* 区画の高さと地の紺（見本の上端の行 #072545・下端の行 #04203f を実測） */
+section[data-unit="cta_A"]{
+  height: 371px;
+  background: linear-gradient(to bottom, #072545 0%, #04203f 100%);
+  /* ボタン上端（クリーム縁の外側）の位置。見本のオレンジの塗りの上端から実測 */
+  --cta-top: 106px;
+  /* 誘導文の行の上端・左右のずれ・大きさ・太さ・字間（見本の文字の位置と幅に合わせた値） */
+  --cta-lead-top: 30px;
+  --cta-lead-dx: -2px;
+  --cta-lead-fs: 47px;
+  --cta-lead-fw: 900;
+  --cta-lead-ls: 2.3px;
+  /* 斜線「＼」「／」の位置（見本の斜線の左端x 194・788、斜線の幅・上端y 41 を実測。誘導文の行の左上からの距離） */
+  --cta-mark-l: 196px;
+  --cta-mark-r: 790px;
+  --cta-mark-w: 41px;
+  --cta-mark-top: 11px;
+}

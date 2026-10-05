@@ -1,0 +1,67 @@
+/* ===== 全体の土台（全区画共通）===== */
+
+/* 色の役割（1色1役割。値は見本 master/v9.png からの実測） */
+:root{
+  --navy: #052545;          /* 紺の地・帯（区画ごとに少し違うので各区画のCSSで実測値を使う） */
+  --navy-text: #0b2447;     /* 白地の上の見出し・本文の紺 */
+  --gold: #f0a800;          /* 白地の上の金額の数字 */
+  --gold-on-navy: #fcbc08;  /* 紺地の上の金額の数字 */
+  --white: #fcfcfc;         /* 白い地 */
+  --orange-top: #ff9a1f;    /* 応募ボタンの塗り（上） */
+  --orange-bottom: #ff5a00; /* 応募ボタンの塗り（下） */
+  --orange-depth: #c44700;  /* 応募ボタンの下辺の厚み */
+  --cream: #ffe3a8;         /* 応募ボタンの縁取り */
+  --note: #c8d3e6;          /* 紺地の上の補足文字 */
+}
+
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  background: #e9edf2;
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  font-family: "Noto Sans JP", sans-serif;
+  color: var(--navy-text);
+  line-height: 1.5;
+  font-feature-settings: "palt" 0;
+}
+
+/* 本体は見本と同じ幅1024の1カラム。広い画面では中央に置く */
+.lp{
+  position: relative;
+  width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+section[data-unit]{
+  position: relative;
+  width: 1024px;
+  overflow: hidden;
+}
+
+img{
+  display: block;
+  max-width: none;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  touch-action: manipulation;
+}
+
+button,
+input,
+select{
+  font: inherit;
+  color: inherit;
+}
