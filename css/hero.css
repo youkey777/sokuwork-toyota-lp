@@ -62,7 +62,7 @@ section[data-unit="hero"]{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 42% 28%;
+  object-position: 60% 30%;
 }
 
 /* 文字を読みやすくする下からの紺の影 */
@@ -230,7 +230,7 @@ section[data-unit="hero"]{
   /* PC 1280×900 で数字まで見えるよう、写真は画面の高さから決める（上限は見本の 810px） */
   .hero-visual{ height: clamp(28rem, calc(100svh - 6rem - 15rem), 50.625rem); }
   /* 写真が低くなっても顔が見出しに隠れないよう、少し下側を見せる */
-  .hero-photo{ object-position: 50% 58%; }
+  .hero-photo{ object-position: 60% 30%; }
   .hero-visual::after{ height: 55%; background: linear-gradient(to top, rgba(4, 26, 52, 0.55) 0%, rgba(4, 26, 52, 0.2) 55%, rgba(4, 26, 52, 0) 100%); }
   .hero-copy{ left: 1.5rem; bottom: 1.6rem; }
   .hero-kicker{ font-size: 3rem; margin-left: 0.4rem; }
@@ -250,5 +250,5 @@ section[data-unit="hero"]{
 /* ===== 2xl 1536〜: 文字の基準が18pxになり一回り大きくなる。見出しが大きくなる分、写真を少し高くして顔に重ならないようにする ===== */
 @media (min-width: 1536px){
   .hero-visual{ height: clamp(28rem, calc(100svh - 6rem - 14.5rem), 50.625rem); }
-  .hero-photo{ object-position: 50% 60%; }
+  .hero-photo{ object-position: 60% 30%; }
 }
