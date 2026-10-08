@@ -95,3 +95,10 @@ select{
 h1, h2, h3, h4, summary, .ib{ word-break: auto-phrase; }
 /* 段落の最後の行に1〜2文字だけ残る折り返しを避ける（対応ブラウザのみ） */
 p, dd, li{ text-wrap: pretty; }
+
+/* 長めの本文は文節の切れ目（build.py が BudouX で入れた <wbr>）でだけ折り返す。
+   word-break: auto-phrase は iPhone の Safari で効かないので使わない。収まらない長い語だけは overflow-wrap で救う。 */
+.bx{
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}

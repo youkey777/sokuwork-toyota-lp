@@ -175,6 +175,27 @@ section[data-unit="nav_miryoku"]{
   font-weight: 800;
   line-height: 1;
   margin: 2px 0 2px 2px;
+  /* 文字の「＋」は端末の書体で高さが変わる（iPhone で上に寄った）ので、図形で真ん中に描く。文字は読み上げ用に残す */
+  position: relative;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: transparent;
+  align-self: flex-start;
+}
+.nav_miryoku-plus::before,
+.nav_miryoku-plus::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  border-radius: 1px;
+  transform: translate(-50%, -50%);
+}
+.nav_miryoku-plus::before{ width: 0.78em; height: 0.16em; }
+.nav_miryoku-plus::after{ width: 0.16em; height: 0.78em; }
+.nav_miryoku-plus-dummy{
 }
 
 /* ===== sm 640〜 ===== */
@@ -212,7 +233,7 @@ section[data-unit="nav_miryoku"]{
   .nav_miryoku-r3 .nav_miryoku-label{ font-size: 1.6rem; }
   .nav_miryoku-r3 .nav_miryoku-num{ font-size: 3.2rem; }
   .nav_miryoku-r3 .nav_miryoku-unit{ font-size: 1.7rem; }
-  .nav_miryoku-plus{ font-size: 2rem; }
+  .nav_miryoku-plus{ font-size: 2rem; align-self: center; }
 }
 
 /* ===== lg 1024〜（見本: 帯の高さ742・見出し80px・560は144px） ===== */
@@ -240,5 +261,5 @@ section[data-unit="nav_miryoku"]{
   .nav_miryoku-r3 .nav_miryoku-label{ font-size: 2.2rem; }
   .nav_miryoku-r3 .nav_miryoku-num{ font-size: 4.45rem; }
   .nav_miryoku-r3 .nav_miryoku-unit{ font-size: 2.63rem; }
-  .nav_miryoku-plus{ font-size: 2.85rem; }
+  .nav_miryoku-plus{ font-size: 2.85rem; align-self: center; }
 }

@@ -192,10 +192,6 @@ section[data-unit="flow"]{
   color: #0b2447;
 }
 
-.flow-step:nth-child(n+4) .flow-sup{
-  background: #fdfdfd;
-}
-
 .flow-suphead{
   display: flex;
   align-items: center;
@@ -205,7 +201,7 @@ section[data-unit="flow"]{
   line-height: 1.4;
 }
 
-.flow-step:nth-child(-n+3) .flow-suphead::after{
+.flow-suphead::after{
   content: "";
   flex: 1;
   height: 2px;
@@ -282,26 +278,8 @@ section[data-unit="flow"]{
   .flow-note{ font-size: 1.3rem; margin-top: 1.1rem; }
   .flow-suphead{ font-size: 1.35rem; }
   .flow-sup-text{ font-size: 1.3rem; line-height: 1.7; margin-top: 0.6rem; }
-  /* 04〜06 は見本どおり紺の箱の外（全幅の紺）に出し、番号の下に丸と線、文字は大きめ */
-  .flow-step:nth-child(n+4){
-    margin: 0 -7.1rem 0 -6rem;
-    padding: 0.8rem 2.4rem 2rem 2.75rem;
-    background: #0a2544;
-    grid-template-columns: 7rem 1fr;
-    column-gap: 2.5rem;
-  }
-  .flow-step:nth-child(4){ padding-top: 2.4rem; }
-  .flow-step:nth-child(n+4) > *{ padding-left: 0; }
-  .flow-step:nth-child(n+4) > .flow-sup{ margin-left: -3.3rem; padding: 1.3rem 1.6rem 1.4rem 2.2rem; }
-  .flow-step:nth-child(n+4)::after{ left: 5.2rem; top: auto; margin-top: 0; top: calc(var(--top-dot, 7.4rem)); }
-  .flow-step:nth-child(4)::after{ --top-dot: 9rem; }
-  .flow-step:nth-child(n+4):not(:last-child)::before{ left: 6.05rem; top: 8rem; bottom: 0.4rem; }
-  .flow-step:nth-child(4):not(:last-child)::before{ top: 9.6rem; }
-  .flow-step:nth-child(n+4) .flow-num{ text-align: left; }
-  .flow-step:last-child::after{ display: none; }
-  .flow-step:nth-child(n+4) .flow-step-t{ font-size: 5.2rem !important; line-height: 1.05; }
-  .flow-step:nth-child(n+4) .flow-text{ font-size: 2rem; line-height: 1.5; }
-  .flow-step:nth-child(n+4) .flow-step-t{ font-size: 4.4rem; }
-  .flow-step:nth-child(n+4) .flow-suphead{ font-size: 1.65rem; }
-  .flow-step:nth-child(n+4) .flow-sup-text{ font-size: 1.75rem; }
+  /* 01〜06 を同じ型にそろえる（04〜06 だけ紺の箱の外へ出していた見本由来の不揃いをやめた。2026-10-08 発注主修正11） */
+  section[data-unit="flow"]{ padding-bottom: 2.5rem; }
+  .flow-box{ padding-bottom: 2.6rem; }
+  .flow-step:last-child{ padding-bottom: 0; }
 }

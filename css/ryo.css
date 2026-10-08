@@ -173,3 +173,6 @@ section[data-unit="ryo"]{
   .ryo-cap{ font-size: 2.3rem; margin-top: 1.4rem; line-height: 1.3; }
   .ryo-sub--etc{ margin-top: 2.6rem; }
 }
+
+/* 大浴場の写真（2026-10-08 差し替え。元は4:3。横長の枠では湯船と洗い場が入る位置で切り出す） */
+.ryo-photo--bath{ object-position: 50% 58%; }
