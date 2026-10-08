@@ -1,1171 +1,378 @@
-/* ===== 迷っているなら…〜応募フォーム〜フッター（closing）===== */
+/* ===== closing：迷っているなら…＋写真＋4つの約束＋応募フォーム＋送信ボタン＋フッター ===== */
 
-/* 区画全体（見本 y=22534〜25390・高さ2856） */
 section[data-unit="closing"]{
-  height: 2856px;
-  background: #04274a;
+  background: #0a2441;
+  color: #ffffff;
 }
 
-/* 最上部の帯（見本 y=22534〜22563・色 #0a2544） */
-.closing-top{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1024px;
-  height: 30px;
-  background: #0a2544;
-}
-
-/* 「迷っているなら、まずは45秒の応募から。」（見本の文字の外形を実測: 上端 y=22596・左端 x=42） */
 .closing-title{
-  position: absolute;
-  top: 50px;
-  left: 36px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 100.5px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px var(--g) 18px;
+  font-size: min(2.6rem, calc((100vw - 2 * var(--g)) / 10.4));
   font-weight: 900;
-  line-height: 106.51px;
-  letter-spacing: -9.46px;
-  color: #ffffff;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  font-feature-settings: "palt" 1;
+  text-shadow: 0 2px 6px rgba(0, 10, 30, 0.4);
+}
+
+.closing-title > span{
   white-space: nowrap;
 }
 
-/* 写真（見本 y=22820〜23299 をそのまま切り出し） */
 .closing-photo{
-  position: absolute;
-  top: 286px;
-  left: 0;
-  width: 1024px;
-  height: 479px;
+  width: 100%;
+  aspect-ratio: 1024 / 479;
+  object-fit: cover;
 }
 
-/* 約束1〜4の紺地（見本 y=23299〜24100・色 #052545） */
+@media (max-width: 639px){
+  .closing-photo{ aspect-ratio: 4 / 3; object-position: 45% 50%; }
+}
+
+/* 4つの約束 */
 .closing-promise-bg{
-  position: absolute;
-  top: 765px;
-  left: 0;
-  width: 1024px;
-  height: 801px;
-  background: #052545;
+  padding: 22px var(--g) 22px;
 }
 
-/* 約束1の白い丸（見本 直径83・x=70〜153・y=23328） */
-.closing-circle1{
-  position: absolute;
-  top: 794px;
-  left: 70px;
-  width: 83px;
-  height: 83px;
+.closing-promise{
+  list-style: none;
+  display: grid;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #8a98ab;
+}
+
+.closing-promise li{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+
+.closing-circle{
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #ffffff;
-}
-
-/* 約束1の丸の中の数字（見本の文字の外形を実測: 上端 y=23347・左端 x=99） */
-.closing-num1{
-  position: absolute;
-  top: 804.6px;
-  left: 95.8px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 52.4px;
+  color: #0a2441;
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-size: 1.5rem;
   font-weight: 900;
-  line-height: 52.4px;
-  letter-spacing: -0.3px;
-  color: #02193a;
-  white-space: nowrap;
+  line-height: 1;
 }
 
-/* 約束1の見出し（見本の文字の外形を実測: 上端 y=23327・左端 x=184） */
-.closing-ptitle1{
-  position: absolute;
-  top: 789.7px;
-  left: 184.1px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 46.9px;
+.closing-ptitle{
+  font-size: 1.25rem;
   font-weight: 900;
-  line-height: 46.9px;
-  letter-spacing: 2px;
-  color: #ffffff;
-  white-space: nowrap;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
-/* 約束1の補足（見本の文字の外形を実測: 上端 y=23384・左端 x=183） */
-.closing-psub1{
-  position: absolute;
-  top: 847.2px;
-  left: 180.9px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 31.4px;
-  font-weight: 500;
-  line-height: 31.4px;
-  letter-spacing: 0.91px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
+.closing-en{
+  letter-spacing: 0.02em;
 }
 
-/* 約束2の白い丸（見本 直径83・x=70〜153・y=23444） */
-.closing-circle2{
-  position: absolute;
-  top: 910px;
-  left: 70px;
-  width: 83px;
-  height: 83px;
-  border-radius: 50%;
-  background: #ffffff;
+.closing-psub{
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-/* 約束2の丸の中の数字（見本の文字の外形を実測: 上端 y=23463・左端 x=96） */
-.closing-num2{
-  position: absolute;
-  top: 919.3px;
-  left: 94.3px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 56.9px;
+/* 年収例…寮費0円（金の数字） */
+.closing-income{
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1.0625rem;
   font-weight: 900;
-  line-height: 56.9px;
-  letter-spacing: -0.3px;
-  color: #02193a;
-  white-space: nowrap;
+  line-height: 1.5;
 }
 
-/* 約束2の見出し（見本の文字の外形を実測: 上端 y=23444・左端 x=185） */
-.closing-ptitle2{
-  position: absolute;
-  top: 905.6px;
-  left: 184px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 48.9px;
-  font-weight: 900;
-  line-height: 48.9px;
-  letter-spacing: -1.14px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 約束2の補足（見本の文字の外形を実測: 上端 y=23501・左端 x=186） */
-.closing-psub2{
-  position: absolute;
-  top: 964.4px;
-  left: 183.6px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 1.6px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-  text-shadow: 1px 2px 3px rgba(0, 10, 30, 0.45);
-}
-
-/* 約束3の白い丸（見本 直径83・x=70〜153・y=23565） */
-.closing-circle3{
-  position: absolute;
-  top: 1031px;
-  left: 70px;
-  width: 83px;
-  height: 83px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-/* 約束3の丸の中の数字（見本の文字の外形を実測: 上端 y=23584・左端 x=95） */
-.closing-num3{
-  position: absolute;
-  top: 1039.9px;
-  left: 94.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 59.5px;
-  font-weight: 900;
-  line-height: 59.5px;
-  letter-spacing: -0.3px;
-  color: #02193a;
-  white-space: nowrap;
-}
-
-/* 約束3の見出し（見本の文字の外形を実測: 上端 y=23566・左端 x=186） */
-.closing-ptitle3{
-  position: absolute;
-  top: 1028.7px;
-  left: 185.6px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 47.4px;
-  font-weight: 900;
-  line-height: 47.4px;
-  letter-spacing: 1.09px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 約束3の補足（見本の文字の外形を実測: 上端 y=23624・左端 x=186） */
-.closing-psub3{
-  position: absolute;
-  top: 1087.5px;
-  left: 186px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 31.7px;
-  font-weight: 500;
-  line-height: 31.7px;
-  letter-spacing: 0.29px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 約束4の白い丸（見本 直径83・x=70〜153・y=23688） */
-.closing-circle4{
-  position: absolute;
-  top: 1154px;
-  left: 70px;
-  width: 83px;
-  height: 83px;
-  border-radius: 50%;
-  background: #ffffff;
-}
-
-/* 約束4の丸の中の数字（見本の文字の外形を実測: 上端 y=23708・左端 x=95） */
-.closing-num4{
-  position: absolute;
-  top: 1163.8px;
-  left: 93.3px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 59.2px;
-  font-weight: 800;
-  line-height: 59.2px;
-  letter-spacing: -0.3px;
-  color: #02193a;
-  white-space: nowrap;
-}
-
-/* 約束4の見出し（見本の文字の外形を実測: 上端 y=23685・左端 x=186） */
-.closing-ptitle4{
-  position: absolute;
-  top: 1148.5px;
-  left: 183px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 50.3px;
-  font-weight: 900;
-  line-height: 50.3px;
-  letter-spacing: -3.59px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 約束4の補足（見本の文字の外形を実測: 上端 y=23747・左端 x=187） */
-.closing-psub4{
-  position: absolute;
-  top: 1210.6px;
-  left: 185.5px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 30.6px;
-  font-weight: 700;
-  line-height: 30.6px;
-  letter-spacing: 1.81px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 約束1の「WEB」（見本 x=332〜448・高さ43。Noto の英字は字の間が広いので Roboto で詰まり方を合わせる） */
-.closing-en1{
-  font-family: "Roboto", sans-serif;
-  font-size: 59px;
-  letter-spacing: 0.8px;
-}
-
-/* 約束1の「45」（見本 x=500〜565） */
-.closing-en2{
-  font-family: "Roboto", sans-serif;
-  font-size: 59px;
-  letter-spacing: 0.5px;
-}
-
-/* 約束の下の細い線（見本 y=23804・x=36〜989） */
-.closing-sep{
-  position: absolute;
-  top: 1270px;
-  left: 36px;
-  width: 953px;
-  height: 1px;
-  background: #cad2dd;
-}
-
-/* 年収例の行「年収例」（見本の文字の外形を実測: 上端 y=23834・左端 x=39） */
-.closing-inc1{
-  position: absolute;
-  top: 1297.6px;
-  left: 37.5px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 34.9px;
-  font-weight: 900;
-  line-height: 34.9px;
-  letter-spacing: 0.05px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 年収例の行「560」（見本の文字の外形を実測: 上端 y=23826・左端 x=149） */
-.closing-inc2{
-  position: absolute;
-  top: 1284.2px;
-  left: 146.1px;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 60.3px;
-  font-weight: 900;
-  line-height: 60.3px;
-  letter-spacing: -2.55px;
+.closing-g{
   color: #f9c808;
-  white-space: nowrap;
 }
 
-/* 年収例の行「万円」（見本の文字の外形を実測: 上端 y=23835・左端 x=248） */
-.closing-inc3{
-  position: absolute;
-  top: 1296.1px;
-  left: 246.8px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 35.2px;
-  font-weight: 800;
-  line-height: 35.2px;
-  letter-spacing: -2.23px;
-  color: #f9c808;
-  white-space: nowrap;
-  text-shadow: 1px 2px 3px rgba(0, 10, 30, 0.45);
+.closing-gn{
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+  font-size: 1.9em;
+  line-height: 1;
+  margin: 0 0.04em;
+  letter-spacing: -0.02em;
 }
 
-/* 年収例の行「以上・入社祝い金総額」（見本の文字の外形を実測: 上端 y=23834・左端 x=317） */
-.closing-inc4{
-  position: absolute;
-  top: 1297.6px;
-  left: 315.3px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 34.4px;
-  font-weight: 900;
-  line-height: 34.4px;
-  letter-spacing: -0.33px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 年収例の行「100」（見本の文字の外形を実測: 上端 y=23826・左端 x=664） */
-.closing-inc5{
-  position: absolute;
-  top: 1283px;
-  left: 659.1px;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 61.3px;
-  font-weight: 900;
-  line-height: 61.3px;
-  letter-spacing: -4.65px;
-  color: #f9c808;
-  white-space: nowrap;
-}
-
-/* 年収例の行「万円」（見本の文字の外形を実測: 上端 y=23835・左端 x=758） */
-.closing-inc6{
-  position: absolute;
-  top: 1297.5px;
-  left: 757.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 32.2px;
-  font-weight: 900;
-  line-height: 32.2px;
-  letter-spacing: 1.85px;
-  color: #f9c808;
-  white-space: nowrap;
-}
-
-/* 年収例の行「・寮費」（見本の文字の外形を実測: 上端 y=23834・左端 x=835） */
-.closing-inc7{
-  position: absolute;
-  top: 1297.5px;
-  left: 822.7px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 35.6px;
-  font-weight: 900;
-  line-height: 35.6px;
-  letter-spacing: -3.28px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 年収例の行「0」（見本の文字の外形を実測: 上端 y=23826・左端 x=926） */
-.closing-inc8{
-  position: absolute;
-  top: 1285.3px;
-  left: 923.6px;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-size: 59px;
-  font-weight: 900;
-  line-height: 59px;
-  letter-spacing: -0.3px;
-  color: #f9c808;
-  white-space: nowrap;
-  text-shadow: 1px 2px 3px rgba(0, 10, 30, 0.45);
-}
-
-/* 年収例の行「円」（見本の文字の外形を実測: 上端 y=23836・左端 x=961） */
-.closing-inc9{
-  position: absolute;
-  top: 1298.5px;
-  left: 959.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 32.3px;
-  font-weight: 900;
-  line-height: 32.3px;
-  letter-spacing: -0.3px;
-  color: #f9c808;
-  white-space: nowrap;
-}
-
-/* 下向き矢印の軸（見本 x=498〜526・y=23895〜23941） */
+/* 下向きの太い矢印 */
 .closing-arrow{
-  position: absolute;
-  top: 1361px;
-  left: 498px;
-  width: 28px;
-  height: 62px;
+  display: block;
+  width: 44px;
+  height: 46px;
+  margin: 12px auto 4px;
   background: #ffffff;
+  clip-path: polygon(30% 0, 70% 0, 70% 48%, 100% 48%, 50% 100%, 0 48%, 30% 48%);
 }
 
-/* 矢印の先（V字。見本 x=471〜553・y=23927〜23977） */
-.closing-arrow::after{
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: -13px;
-  width: 54px;
-  height: 54px;
-  border-right: 20px solid #ffffff;
-  border-bottom: 20px solid #ffffff;
-  transform: rotate(45deg);
-  box-sizing: border-box;
-}
-
-/* 「応募フォームはこちら」（見本の文字の外形を実測: 上端 y=23985・左端 x=190） */
 .closing-lead{
-  position: absolute;
-  top: 1445.1px;
-  left: 188.6px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 70.2px;
+  text-align: center;
+  font-size: min(2.2rem, calc((100vw - 2 * var(--g)) / 10.2));
   font-weight: 900;
-  line-height: 70.2px;
-  letter-spacing: 0.59px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
+  line-height: 1.3;
 }
 
-/* 応募フォームの地（見本 y=24100〜25173・色 #092a4a） */
+/* --- 応募フォーム --- */
 .closing-form{
-  position: absolute;
-  top: 1566px;
-  left: 0;
-  width: 1024px;
-  height: 1073px;
-  margin: 0;
-  background: #092a4a;
+  padding: 22px var(--g) 30px;
+  background: #092442;
 }
 
-/* 「45秒で完了！応募フォーム」（見本の文字の外形を実測: 上端 y=24131・左端 x=42） */
 .closing-ftitle{
-  position: absolute;
-  top: 28.3px;
-  left: 41.9px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 53.2px;
+  font-size: min(1.75rem, calc((100vw - 2 * var(--g)) / 13));
   font-weight: 900;
-  line-height: 53.2px;
-  letter-spacing: 1.56px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 項目名「氏名」（見本の文字の外形を実測: 上端 y=24216・左端 x=48） */
-.closing-label1{
-  position: absolute;
-  top: 113.9px;
-  left: 46.7px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 26.3px;
-  font-weight: 700;
-  line-height: 26.3px;
-  letter-spacing: 0.34px;
-  color: #ffffff;
+  line-height: 1.3;
   white-space: nowrap;
 }
 
-/* 項目名「ふりがな」（見本の文字の外形を実測: 上端 y=24274・左端 x=48） */
-.closing-label2{
-  position: absolute;
-  top: 172.5px;
-  left: 47.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.5px;
-  font-weight: 800;
-  line-height: 25.5px;
-  letter-spacing: 0.68px;
-  color: #ffffff;
-  white-space: nowrap;
+.f-row{
+  margin-top: 14px;
 }
 
-/* 項目名「電話番号」（見本の文字の外形を実測: 上端 y=24343・左端 x=49） */
-.closing-label3{
-  position: absolute;
-  top: 240.6px;
-  left: 47.4px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 26.3px;
-  font-weight: 700;
-  line-height: 26.3px;
-  letter-spacing: -0.1px;
-  color: #ffffff;
-  white-space: nowrap;
+.f-head{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
 }
 
-/* 項目名「メール」（見本の文字の外形を実測: 上端 y=24407・左端 x=50） */
-.closing-label4{
-  position: absolute;
-  top: 303.3px;
-  left: 49px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 26.2px;
-  font-weight: 800;
-  line-height: 26.2px;
-  letter-spacing: 0.58px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
+.f-label{
+  font-size: 1.0625rem;
+  font-weight: 900;
+  line-height: 1.4;
 }
 
-/* 項目名「生年月日」（見本の文字の外形を実測: 上端 y=24472・左端 x=49） */
-.closing-label5{
-  position: absolute;
-  top: 370px;
-  left: 48px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.6px;
-  font-weight: 500;
-  line-height: 25.6px;
-  letter-spacing: 0.57px;
-  color: #ffffff;
-  white-space: nowrap;
+.f-badge{
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 4px;
+  background: #ffffff;
+  color: #04163a;
+  font-size: 0.8125rem;
+  font-weight: 900;
+  line-height: 1.6;
 }
 
-/* 項目名「郵便番号」（見本の文字の外形を実測: 上端 y=24535・左端 x=49） */
-.closing-label6{
-  position: absolute;
-  top: 432.7px;
-  left: 48.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.6px;
-  font-weight: 700;
-  line-height: 25.6px;
-  letter-spacing: 0.55px;
-  color: #ffffff;
-  white-space: nowrap;
+.f-fields{
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* 項目名「住所」（見本の文字の外形を実測: 上端 y=24602・左端 x=49） */
-.closing-label7{
-  position: absolute;
-  top: 499.9px;
-  left: 48.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.7px;
-  font-weight: 800;
-  line-height: 25.7px;
-  letter-spacing: -0.37px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 項目名「番地」（見本の文字の外形を実測: 上端 y=24667・左端 x=49） */
-.closing-label8{
-  position: absolute;
-  top: 564.9px;
-  left: 48.2px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.8px;
-  font-weight: 800;
-  line-height: 25.8px;
-  letter-spacing: -0.31px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 項目名「建物名」（見本の文字の外形を実測: 上端 y=24730・左端 x=49） */
-.closing-label9{
-  position: absolute;
-  top: 628.2px;
-  left: 48.5px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.7px;
-  font-weight: 800;
-  line-height: 25.7px;
-  letter-spacing: -0.01px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 項目名「性別」（見本の文字の外形を実測: 上端 y=24792・左端 x=49） */
-.closing-label10{
-  position: absolute;
-  top: 690.6px;
-  left: 48px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 27.1px;
-  font-weight: 500;
-  line-height: 27.1px;
-  letter-spacing: -2.49px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 「必須」の札1（見本 x=127・y=24212・66×32） */
-.closing-badge.b1{
-  top: 112px;
-  left: 127px;
-}
-
-/* 「必須」の札2（見本 x=173・y=24273・66×32） */
-.closing-badge.b2{
-  top: 173px;
-  left: 173px;
-}
-
-/* 「必須」の札3（見本 x=173・y=24340・66×32） */
-.closing-badge.b3{
-  top: 240px;
-  left: 173px;
-}
-
-/* 「必須」の札4（見本 x=174・y=24469・66×32） */
-.closing-badge.b4{
-  top: 369px;
-  left: 174px;
-}
-
-/* 「必須」の札5（見本 x=127・y=24597・66×32） */
-.closing-badge.b5{
-  top: 497px;
-  left: 127px;
-}
-
-/* 「必須」の札6（見本 x=127・y=24662・66×32） */
-.closing-badge.b6{
-  top: 562px;
-  left: 127px;
-}
-
-/* 「必須」の札（白地に紺の文字・角丸） */
-.closing-badge{
-  position: absolute;
-  width: 66px;
-  height: 32px;
-  border-radius: 6px;
-  background: #f8fafc;
-}
-
-/* 「必須」の文字（札の中での位置）（見本の文字の外形を実測: 上端 y=24219・左端 x=142） */
-.closing-badge-t{
-  position: absolute;
-  top: 5.5px;
-  left: 14.6px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 18.4px;
-  font-weight: 800;
-  line-height: 18.4px;
-  letter-spacing: -0.25px;
-  color: #020c35;
-  white-space: nowrap;
-}
-
-/* 入力欄・選択欄の共通（白地・角丸4px。文字は見本の例文から実測） */
-.closing-in{
-  position: absolute;
-  margin: 0;
+.f-in{
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 12px;
   border: 0;
   border-radius: 4px;
-  background: #f9f9fa;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 24.1px;
-  font-weight: 400;
-  letter-spacing: -0.4px;
-  color: #0a244d;
-  outline-offset: -2px;
+  background: #f8f8f9;
+  color: #0b2447;
+  /* スマホで入力欄を押したときに画面が勝手に拡大しないよう16px以上 */
+  font-size: 1rem;
 }
 
-/* 例文の色（見本では濃い紺） */
-.closing-in::placeholder{
-  color: #0a244d;
-  opacity: 1;
+.f-in::placeholder{
+  color: #5d6676;
 }
 
-/* 入力欄「sei」（見本 x=278〜620・y=24207・高さ46） */
-.closing-in.sei{
-  top: 107px;
-  left: 278px;
-  width: 342px;
-  height: 46px;
-  padding: 0.3px 0 0px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「mei」（見本 x=637〜978・y=24207・高さ46） */
-.closing-in.mei{
-  top: 107px;
-  left: 637px;
-  width: 341px;
-  height: 46px;
-  padding: 0.3px 0 0px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「seikana」（見本 x=278〜620・y=24268・高さ45） */
-.closing-in.seikana{
-  top: 168px;
-  left: 278px;
-  width: 342px;
-  height: 45px;
-  padding: 1.3px 0 0px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「meikana」（見本 x=637〜978・y=24268・高さ45） */
-.closing-in.meikana{
-  top: 168px;
-  left: 637px;
-  width: 341px;
-  height: 45px;
-  padding: 1.3px 0 0px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「tel」（見本 x=278〜978・y=24331・高さ48） */
-.closing-in.tel{
-  top: 231px;
-  left: 278px;
-  width: 700px;
-  height: 48px;
-  padding: 0px 0 1.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「mail」（見本 x=278〜978・y=24396・高さ47） */
-.closing-in.mail{
-  top: 296px;
-  left: 278px;
-  width: 700px;
-  height: 47px;
-  padding: 0px 0 0.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「year」（見本 x=278〜500・y=24461・高さ47） */
-.closing-in.year{
-  top: 361px;
-  left: 278px;
-  width: 222px;
-  height: 47px;
-  padding: 0px 0 0.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「month」（見本 x=540〜742・y=24461・高さ47） */
-.closing-in.month{
-  top: 361px;
-  left: 540px;
-  width: 202px;
-  height: 47px;
-  padding: 0px 0 0.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「day」（見本 x=780〜979・y=24461・高さ47） */
-.closing-in.day{
-  top: 361px;
-  left: 780px;
-  width: 199px;
-  height: 47px;
-  padding: 0px 0 0.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「zip」（見本 x=278〜978・y=24524・高さ48） */
-.closing-in.zip{
-  top: 424px;
-  left: 278px;
-  width: 700px;
-  height: 48px;
-  padding: 0px 0 1.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「pref」（見本 x=279〜616・y=24590・高さ48） */
-.closing-in.pref{
-  top: 490px;
-  left: 279px;
-  width: 337px;
-  height: 48px;
-  padding: 0px 0 1.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「city」（見本 x=636〜978・y=24590・高さ48） */
-.closing-in.city{
-  top: 490px;
-  left: 636px;
-  width: 342px;
-  height: 48px;
-  padding: 0px 0 1.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「addr」（見本 x=278〜978・y=24655・高さ47） */
-.closing-in.addr{
-  top: 555px;
-  left: 278px;
-  width: 700px;
-  height: 47px;
-  padding: 0px 0 0.7px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 入力欄「bldg」（見本 x=278〜978・y=24719・高さ46） */
-.closing-in.bldg{
-  top: 619px;
-  left: 278px;
-  width: 700px;
-  height: 46px;
-  padding: 0.3px 0 0px 19.5px;
-  line-height: 24.1px;
-}
-
-/* 選択欄（標準の見た目を消して右に▼を描く） */
-select.closing-in{
+.f-sel{
   appearance: none;
   -webkit-appearance: none;
-  background-image: linear-gradient(135deg, transparent 50%, #f9f9fa 50%), linear-gradient(-135deg, transparent 50%, #f9f9fa 50%);
+  padding-right: 30px;
+  background: #f8f8f9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 10'%3E%3Cpolygon points='0,0 14,0 7,10' fill='%230b2447'/%3E%3C/svg%3E") no-repeat right 12px center / 12px 9px;
+}
+
+.f-slash{
+  flex: none;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.f-birth .year{
+  flex: 1.25;
+}
+
+.f-gender .f-fields{
+  gap: 28px;
+  min-height: 40px;
+}
+
+.f-radio{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.0625rem;
+  font-weight: 700;
   cursor: pointer;
 }
 
-/* 「year」の▼（見本 x=465・幅14・高さ12） */
-.closing-tri.t-year{
-  top: 381px;
-  left: 465px;
-}
-
-/* 「month」の▼（見本 x=706・幅14・高さ12） */
-.closing-tri.t-month{
-  top: 381px;
-  left: 706px;
-}
-
-/* 「day」の▼（見本 x=943・幅14・高さ12） */
-.closing-tri.t-day{
-  top: 381px;
-  left: 943px;
-}
-
-/* 「pref」の▼（見本 x=581・幅14・高さ12） */
-.closing-tri.t-pref{
-  top: 510px;
-  left: 581px;
-}
-
-/* 「city」の▼（見本 x=943・幅14・高さ12） */
-.closing-tri.t-city{
-  top: 510px;
-  left: 943px;
-}
-
-/* 選択欄の▼ */
-.closing-tri{
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 12px solid #0a244d;
-  pointer-events: none;
-}
-
-/* 生年月日の区切り「/」1（見本の文字の外形を実測: 上端 y=24468・左端 x=514） */
-.closing-slash1{
-  position: absolute;
-  top: 364.7px;
-  left: 513.1px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 35.7px;
-  font-weight: 700;
-  line-height: 35.7px;
-  letter-spacing: -0.3px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 生年月日の区切り「/」2（見本の文字の外形を実測: 上端 y=24468・左端 x=754） */
-.closing-slash2{
-  position: absolute;
-  top: 363.9px;
-  left: 753.7px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 34.4px;
-  font-weight: 700;
-  line-height: 34.4px;
-  letter-spacing: -0.3px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 性別の丸（見本 直径30・白い輪2.5px） */
 .closing-radio{
-  position: absolute;
-  top: 691px;
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  border: 2.5px solid #f4f6f9;
-  border-radius: 50%;
   appearance: none;
   -webkit-appearance: none;
-  background: transparent;
-  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
 }
 
-/* 選んだ丸の中を塗る */
-.closing-radio:checked{
-  background: radial-gradient(#ffffff 0 6px, transparent 7px);
+.closing-radio:checked::after{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
 }
 
-/* 男性の丸（見本 x=279） */
-.closing-radio.r1{
-  left: 279px;
-}
-
-/* 女性の丸（見本 x=413） */
-.closing-radio.r2{
-  left: 413px;
-}
-
-/* 「男性」（見本の文字の外形を実測: 上端 y=24794・左端 x=322） */
-.closing-rl1{
-  position: absolute;
-  top: 691.7px;
-  left: 321px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 25.5px;
-  font-weight: 500;
-  line-height: 25.5px;
-  letter-spacing: 0.04px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 「女性」（見本の文字の外形を実測: 上端 y=24796・左端 x=455） */
-.closing-rl2{
-  position: absolute;
-  top: 693.8px;
-  left: 453.8px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 24px;
-  letter-spacing: 0.16px;
-  color: #ffffff;
-  white-space: nowrap;
-}
-
-/* 誘導文「＼ 45秒で入力完了！あと少しです ／」（見本の文字の外形を実測: 上端 y=24864・左端 x=133） */
 .closing-push{
-  position: absolute;
-  top: 760.7px;
-  left: 132.6px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 46.9px;
+  margin-top: 26px;
+  text-align: center;
+  font-size: min(1.5rem, calc((100vw - 2 * var(--g)) / 17.8));
   font-weight: 900;
-  line-height: 46.9px;
-  letter-spacing: 1.78px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 「利用規約・プライバシーポリシーに同意の上」（見本の文字の外形を実測: 上端 y=24928・左端 x=277） */
-.closing-agree{
-  position: absolute;
-  top: 826.7px;
-  left: 277.1px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 22.3px;
-  font-weight: 700;
-  line-height: 22.3px;
-  letter-spacing: 1.09px;
-  color: #ffffff;
+  line-height: 1.35;
   white-space: nowrap;
 }
 
-/* 送信ボタン（見本 x=45〜980・y=24983〜25129。縁はクリーム色・下に濃い橙の厚み） */
-.closing-submit{
-  position: absolute;
-  top: 883px;
-  left: 45px;
-  width: 935px;
-  height: 139px;
-  margin: 0;
-  padding: 0;
-  border: 5px solid #fbe48a;
-  border-radius: 70px;
-  background: linear-gradient(#fe9314 0%, #fe6804 42%, #fe4c00 83%, #fe4e02 100%);
-  box-shadow: 0 7px 0 #c24500;
-  cursor: pointer;
-}
-
-/* 送信ボタンの文言（見本の文字の外形を実測: 上端 y=25027・左端 x=298） */
-.closing-submit-t{
-  position: absolute;
-  top: 35px;
-  left: 243px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 57.5px;
-  font-weight: 900;
-  line-height: 57.5px;
-  letter-spacing: 0.56px;
-  color: #ffffff;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-}
-
-/* 白地のフッター（見本 y=25173〜25390） */
-.closing-foot{
-  position: absolute;
-  top: 2639px;
-  left: 0;
-  width: 1024px;
-  height: 217px;
-  background: #fdfdfd;
-}
-
-/* 「ソクワーク工場」（見本の文字の外形を実測: 上端 y=25197・左端 x=43） */
-.closing-fname{
-  position: absolute;
-  top: 21.2px;
-  left: 39.9px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 31.3px;
-  font-weight: 700;
-  line-height: 31.3px;
-  letter-spacing: -0.34px;
-  color: #0e203c;
-  white-space: nowrap;
-}
-
-/* フッターの説明文（見本の文字の外形を実測: 上端 y=25245・左端 x=43） */
-.closing-fbody{
-  position: absolute;
-  top: 65.8px;
-  left: 40.4px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 20.3px;
+.closing-push-m{
   font-weight: 400;
-  line-height: 29.1px;
-  letter-spacing: -0.92px;
-  color: #141e32;
-  white-space: nowrap;
 }
 
-/* 「© ソクワーク」（見本の文字の外形を実測: 上端 y=25339・左端 x=42） */
+.closing-agree{
+  margin-top: 4px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* 送信ボタン（オレンジの大きいボタン） */
+.closing-submit{
+  display: block;
+  width: 100%;
+  min-height: 76px;
+  margin-top: 14px;
+  border: 3px solid #fde27a;
+  border-radius: 999px;
+  background: linear-gradient(to bottom, #ff9a1f 0%, #fe780a 40%, #ff5a00 100%);
+  box-shadow: 0 6px 0 #c44700, 0 8px 12px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  color: #fffaf5;
+}
+
+.closing-submit-t{
+  font-size: min(1.75rem, calc((100vw - 2 * var(--g)) / 9.6));
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 2px rgba(150, 40, 0, 0.35);
+}
+
+/* フッター */
+.closing-foot{
+  padding: 20px var(--g) 24px;
+  background: #fdfdfd;
+  color: #0b2447;
+}
+
+.closing-fname{
+  font-size: 1.375rem;
+  font-weight: 900;
+  line-height: 1.3;
+}
+
+.closing-fbody{
+  margin-top: 8px;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
 .closing-copy{
-  position: absolute;
-  top: 163.8px;
-  left: 41.1px;
-  margin: 0;
-  font-family: "Noto Sans JP", sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 18px;
-  letter-spacing: -0.03px;
-  color: #141e32;
-  white-space: nowrap;
+  margin-top: 8px;
+  font-size: 0.875rem;
 }
 
-/* 約束1〜4のならび（中身は位置指定） */
-.closing-promise{
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* ===== sm 640〜 ===== */
+@media (min-width: 640px){
+  .closing-title{ font-size: 3.5rem; padding: 32px var(--g) 22px; }
+  .closing-promise-bg{ padding: 28px var(--g) 26px; }
+  .closing-promise li{ grid-template-columns: 56px 1fr; column-gap: 16px; }
+  .closing-circle{ width: 56px; height: 56px; font-size: 1.9rem; }
+  .closing-ptitle{ font-size: 1.6rem; }
+  .closing-psub{ font-size: 1.125rem; }
+  .closing-income{ font-size: 1.3rem; }
+  .closing-lead{ font-size: 2.8rem; }
+  .closing-form{ padding: 30px var(--g) 36px; }
+  .closing-ftitle{ font-size: 2.2rem; }
+  /* 見出しを左、入力欄を右の2列に */
+  .f-row{ display: grid; grid-template-columns: 9.5rem 1fr; align-items: center; column-gap: 14px; margin-top: 12px; }
+  .f-head{ margin-bottom: 0; justify-content: space-between; }
+  .f-label{ font-size: 1.15rem; }
+  .f-in{ height: 50px; font-size: 1.0625rem; }
+  .closing-push{ font-size: 2rem; }
+  .closing-agree{ font-size: 1.125rem; }
+  .closing-submit{ min-height: 96px; }
+  .closing-submit-t{ font-size: 2.4rem; }
+  .closing-fbody{ font-size: 1rem; }
 }
 
-/* 1行目だけ字間・位置を変える（見本のこの行の右端 x=705 に合わせる） */
-.closing-title-l1{
-  letter-spacing: -10.09px;
-  position: relative;
-  left: 4px;
+/* ===== md 768〜 ===== */
+@media (min-width: 768px){
+  .closing-title{ font-size: min(4.4rem, calc((100vw - 2 * var(--g)) / 10.6)); }
+  .closing-ptitle{ font-size: 2rem; }
+  .closing-psub{ font-size: 1.3rem; }
+  .closing-income{ font-size: 1.55rem; }
+  .closing-lead{ font-size: 3.4rem; }
+  .f-row{ grid-template-columns: 11rem 1fr; column-gap: 24px; }
+  .f-label{ font-size: 1.4rem; }
+  .f-badge{ font-size: 0.95rem; padding: 2px 10px; }
+  .closing-push{ font-size: 2.4rem; }
+  .closing-submit-t{ font-size: 3rem; }
 }
 
-/* 2行目だけ字間・位置を変える（見本のこの行の右端 x=998 に合わせる） */
-.closing-title-l2{
-  letter-spacing: -8.84px;
-  position: relative;
-  left: -4.1px;
-}
-
-/* 1行目だけ字間・位置を変える（見本のこの行の右端 x=931 に合わせる） */
-.closing-fbody-l1{
-  letter-spacing: -1.27px;
-}
-
-/* 3行目だけ字間・位置を変える（見本のこの行の右端 x=669 に合わせる） */
-.closing-fbody-l3{
-  letter-spacing: -0.71px;
+/* ===== lg 1024〜（見本: 見出し95px・約束の見出し46px・入力欄の高さ46px・送信ボタン934×136） ===== */
+@media (min-width: 1024px){
+  .closing-title{ font-size: 5.85rem; padding: 2.6rem 1.9rem 1rem; line-height: 1.12; letter-spacing: -0.03em; }
+  .closing-promise-bg{ padding: 1.8rem 1.9rem 1.5rem; }
+  .closing-promise{ gap: 2rem; padding: 0.4rem 0 1.4rem 2.1rem; }
+  .closing-promise li{ grid-template-columns: 4.6rem 1fr; column-gap: 1.6rem; }
+  .closing-circle{ width: 4.6rem; height: 4.6rem; font-size: 2.8rem; }
+  .closing-ptitle{ font-size: 3.05rem; line-height: 1.15; letter-spacing: -0.02em; }
+  .closing-psub{ font-size: 1.75rem; line-height: 1.3; }
+  .closing-income{ font-size: 2rem; margin-top: 1.1rem; white-space: nowrap; }
+  .closing-gn{ font-size: 1.95em; }
+  .closing-arrow{ width: 4.2rem; height: 4.4rem; margin-top: 1.2rem; }
+  .closing-lead{ font-size: 4.9rem; }
+  .closing-form{ padding: 1.8rem 2.8rem 3rem; }
+  .closing-ftitle{ font-size: 3.6rem; }
+  .f-row{ grid-template-columns: 14.6rem 1fr; margin-top: 1.05rem; }
+  .f-head{ justify-content: flex-start; gap: 1.6rem; }
+  .f-label{ font-size: 1.8rem; }
+  .f-badge{ font-size: 1.1rem; padding: 0.15rem 0.85rem; border-radius: 0.3rem; }
+  .f-fields{ gap: 1.1rem; }
+  .f-in{ height: 3rem; font-size: 1.6rem; padding: 0 1.2rem; }
+  .f-sel{ background-position: right 1.3rem center; background-size: 1rem 0.75rem; }
+  .f-slash{ font-size: 2.4rem; }
+  .f-radio{ font-size: 1.6rem; }
+  .closing-radio{ width: 1.85rem; height: 1.85rem; }
+  .f-gender .f-fields{ gap: 2.5rem; }
+  .closing-push{ font-size: 3.3rem; margin-top: 2.3rem; }
+  .closing-agree{ font-size: 1.5rem; }
+  .closing-submit{ min-height: 8.8rem; margin-top: 1.9rem; border-width: 5px; }
+  .closing-submit-t{ font-size: 4.3rem; }
+  .closing-foot{ padding: 1.4rem 2.6rem 1.6rem; }
+  .closing-fname{ font-size: 2.2rem; }
+  .closing-fbody{ font-size: 1.35rem; line-height: 1.55; }
+  .closing-copy{ font-size: 1.2rem; }
 }

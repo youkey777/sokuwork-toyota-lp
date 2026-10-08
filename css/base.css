@@ -1,18 +1,25 @@
-/* ===== 全体の土台（全区画共通）===== */
+/* ===== 全体の土台（全区画共通）=====
+   モバイルファースト。区切りは Tailwind 標準の5つ:
+   sm 640px / md 768px / lg 1024px / xl 1280px / 2xl 1536px
+   大きさは rem で書き、2xl だけ html の文字の基準を 16px→18px に上げて一回り大きく組む（縮小・拡大の変形は使わない）。 */
 
-/* 色の役割（1色1役割。値は見本 master/v9.png からの実測） */
 :root{
-  --navy: #052545;          /* 紺の地・帯（区画ごとに少し違うので各区画のCSSで実測値を使う） */
+  --navy: #072646;          /* 紺の地 */
+  --navy-2: #0b2443;        /* 帯の紺 */
   --navy-text: #0b2447;     /* 白地の上の見出し・本文の紺 */
   --gold: #f0a800;          /* 白地の上の金額の数字 */
-  --gold-on-navy: #fcbc08;  /* 紺地の上の金額の数字 */
-  --white: #fcfcfc;         /* 白い地 */
-  --orange-top: #ff9a1f;    /* 応募ボタンの塗り（上） */
-  --orange-bottom: #ff5a00; /* 応募ボタンの塗り（下） */
-  --orange-depth: #c44700;  /* 応募ボタンの下辺の厚み */
-  --cream: #ffe3a8;         /* 応募ボタンの縁取り */
-  --note: #c8d3e6;          /* 紺地の上の補足文字 */
+  --gold-on-navy: #fcbd08;  /* 紺地の上の金額の数字 */
+  --white: #fcfcfc;
+  --note: #c8d3e6;
+  /* 左右の余白（帯ごとに広げる） */
+  --g: 16px;
+  /* 本体の列の幅の上限 */
+  --col: 1024px;
 }
+@media (min-width: 640px){ :root{ --g: 24px; } }
+@media (min-width: 768px){ :root{ --g: 32px; } }
+@media (min-width: 1024px){ :root{ --g: 40px; } }
+@media (min-width: 1536px){ :root{ --col: 1152px; } }
 
 *,
 *::before,
@@ -25,32 +32,44 @@
 html{
   background: #e9edf2;
   -webkit-text-size-adjust: 100%;
+  font-size: 16px;
 }
+@media (min-width: 1536px){ html{ font-size: 18px; } }
 
 body{
   font-family: "Noto Sans JP", sans-serif;
   color: var(--navy-text);
-  line-height: 1.5;
-  font-feature-settings: "palt" 0;
+  line-height: 1.6;
+  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 本体は見本と同じ幅1024の1カラム。広い画面では中央に置く */
+/* 本体は1カラム。広い画面では列幅を上限で止めて中央に置く（1024以上は見本と同じ「紙の幅」で見せる） */
 .lp{
   position: relative;
-  width: 1024px;
+  width: 100%;
+  max-width: var(--col);
   margin: 0 auto;
   overflow: hidden;
+  background: #fdfdfd;
+}
+@media (min-width: 1280px){
+  .lp{ box-shadow: 0 0 40px rgba(5, 25, 50, 0.12); }
+}
+/* 1024以上は見本と同じく約物（、。「」など）を詰めて組む */
+@media (min-width: 1024px){
+  .lp{ font-feature-settings: "palt" 1; }
 }
 
 section[data-unit]{
   position: relative;
-  width: 1024px;
-  overflow: hidden;
+  width: 100%;
 }
 
 img{
   display: block;
-  max-width: none;
+  max-width: 100%;
+  height: auto;
 }
 
 a{
@@ -65,3 +84,14 @@ select{
   font: inherit;
   color: inherit;
 }
+
+/* 共通の部品 */
+.in{ padding-inline: var(--g); }        /* 左右の余白 */
+.nw{ white-space: nowrap; }             /* 折り返さない（数字・語のかたまり） */
+.ib{ display: inline-block; }           /* 語のかたまり単位で折り返す */
+.num{ font-family: "Roboto", "Noto Sans JP", sans-serif; }
+.jp-tight{ font-feature-settings: "palt" 1; }
+/* 文の途中で変に折れないよう、日本語は文節で折り返す（対応ブラウザのみ） */
+h1, h2, h3, h4, summary, .ib{ word-break: auto-phrase; }
+/* 段落の最後の行に1〜2文字だけ残る折り返しを避ける（対応ブラウザのみ） */
+p, dd, li{ text-wrap: pretty; }

@@ -1,200 +1,73 @@
-/* 太さを細かく合わせるため、Noto Sans JP を太さ自由（100〜900）の形でも読み込む */
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+/* ===== toyo：正社員登用制度について（紺の帯＋写真＋本文） ===== */
 
-/* ===== toyo: 正社員登用制度について（見本 y16094〜16703）===== */
-
-/* 区画の高さ（見本 16703−16094。下に白の余白56px） */
 section[data-unit="toyo"]{
-  height: 609px;
   background: #fdfdfd;
+  padding: 18px var(--g) 30px;
 }
 
-/* 文字は全部この共通の置き方（見本の位置に1行ずつ置く） */
-.toyo-t{
-  position: absolute;
-  display: block;
-  line-height: 1;
-  white-space: nowrap;
-  font-feature-settings: "palt" 1;
-  will-change: transform;
-}
-
-/* 見出しの紺帯（募集要項の帯と同じ。見本 x32〜991・y16108〜16179 を実測 #103454） */
 .toyo-band{
-  position: absolute;
-  left: 32px;
-  top: 14px;
-  width: 960px;
-  height: 72px;
+  padding: 10px 16px;
   background: #103454;
-  font-size: inherit;
-}
-
-/* 帯の上下の境目（見本 y16107 と y16180〜16181 の色。下端は右に向かって少し下がっているので左右で色を変える） */
-.toyo-band::before,
-.toyo-band::after{
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 960px;
-}
-
-.toyo-band::before{
-  top: -1px;
-  height: 1px;
-  background: rgb(78, 101, 125);
-}
-
-.toyo-band::after{
-  top: 72px;
-  height: 2px;
-  background:
-    linear-gradient(90deg, rgb(197, 206, 215) 0px, rgb(195, 203, 211) 480px, rgb(104, 123, 143) 560px, rgb(16, 49, 80) 600px, rgb(5, 33, 65) 720px) 0 0 / 960px 1px no-repeat,
-    linear-gradient(90deg, rgb(251, 251, 252) 0px, rgb(251, 251, 251) 560px, rgb(233, 238, 241) 600px, rgb(204, 210, 220) 720px, rgb(200, 207, 217) 960px) 0 1px / 960px 1px no-repeat;
-}
-
-/* 女性の写真（見本 x30〜522・y16202〜16624 の切り出し） */
-.toyo-photo{
-  position: absolute;
-  left: 30px;
-  top: 108px;
-}
-
-.toyo-gold{
-  font-weight: inherit;
-}
-
-/* 「正社員登用制度について」 見本の文字の箱 x59〜449・y16126〜16160 に合わせて実測 */
-.toyo-title{
-  left: 26.3px;
-  top: 14.6px;
-  font-size: 35.00px;
-  font-weight: 760;
-  letter-spacing: 1.22px;
-  font-feature-settings: "palt" 0;
+  border-bottom: 3px solid rgb(78, 101, 125);
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.35;
   color: #ffffff;
 }
 
-/* 「トヨタは毎年4回ずつ、正社員」 見本の文字の箱 x563〜979・y16211〜16239 に合わせて実測 */
-.toyo-l1{
-  left: 558.0px;
-  top: 115.0px;
-  font-size: 30.63px;
-  font-weight: 680;
-  letter-spacing: 0.76px;
+.toyo-body{
+  margin-top: 16px;
+  display: grid;
+  gap: 16px;
+}
+
+.toyo-photo{
+  width: 100%;
+  aspect-ratio: 493 / 423;
+  object-fit: cover;
+}
+
+@media (max-width: 639px){
+  .toyo-photo{ aspect-ratio: 4 / 3; object-position: 50% 30%; }
+}
+
+.toyo-text{
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.75;
   color: #082546;
 }
 
-/* 「登用試験を実施。期間工として」 見本の文字の箱 x557〜957・y16256〜16283 に合わせて実測 */
-.toyo-l2{
-  left: 556.0px;
-  top: 160.1px;
-  font-size: 29.06px;
-  font-weight: 680;
-  letter-spacing: 1.84px;
-  color: #082345;
+.toyo-text + .toyo-text{
+  margin-top: 8px;
 }
 
-/* 「1年間働くと、登用試験に挑戦」 見本の文字の箱 x559〜956・y16301〜16328 に合わせて実測 */
-.toyo-l3{
-  left: 557.0px;
-  top: 205.1px;
-  font-size: 29.29px;
-  font-weight: 680;
-  letter-spacing: 2.47px;
-  color: #082244;
+.toyo-gold{
+  font-size: 1.6em;
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0.06em;
+  color: #f0a800;
 }
 
-/* 「できるようになります。」 見本の文字の箱 x558〜853・y16347〜16373 に合わせて実測 */
-.toyo-l4{
-  left: 556.6px;
-  top: 250.2px;
-  font-size: 30.59px;
-  font-weight: 680;
-  letter-spacing: 1.36px;
-  color: #072446;
+/* ===== sm 640〜: 写真と本文を横に並べる ===== */
+@media (min-width: 640px){
+  section[data-unit="toyo"]{ padding: 22px var(--g) 36px; }
+  .toyo-band{ font-size: 1.75rem; padding: 10px 20px; }
+  .toyo-body{ grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; margin-top: 18px; }
+  .toyo-text{ font-size: 1.125rem; }
 }
 
-/* 「実際にキャリアアップに成功」 見本の文字の箱 x558〜926・y16401〜16428 に合わせて実測 */
-.toyo-l5{
-  left: 556.0px;
-  top: 305.1px;
-  font-size: 29.70px;
-  font-weight: 680;
-  letter-spacing: 1.23px;
-  color: #082547;
+/* ===== md 768〜 ===== */
+@media (min-width: 768px){
+  .toyo-text{ font-size: 1.4rem; line-height: 1.7; }
 }
 
-/* 「です。世界のトヨタで正社員に」 見本の文字の箱 x558〜956・y16495〜16522 に合わせて実測 */
-.toyo-l7{
-  left: 557.5px;
-  top: 399.1px;
-  font-size: 29.52px;
-  font-weight: 680;
-  letter-spacing: 2.13px;
-  color: #082547;
+/* ===== lg 1024〜（見本: 帯の見出し35px・写真493×423・本文30px） ===== */
+@media (min-width: 1024px){
+  section[data-unit="toyo"]{ padding: 0.8rem 2rem 4.4rem; }
+  .toyo-band{ font-size: 2.2rem; padding: 0.7rem 1.6rem; }
+  .toyo-body{ grid-template-columns: 30.8rem 1fr; gap: 2.2rem; margin-top: 1.3rem; }
+  .toyo-text{ font-size: 1.86rem; line-height: 1.68; letter-spacing: 0.01em; }
+  .toyo-text + .toyo-text{ margin-top: 0.6rem; }
 }
-
-/* 「なれるチャンスをぜひつかんで」 見本の文字の箱 x559〜966・y16540〜16568 に合わせて実測 */
-.toyo-l8{
-  left: 557.0px;
-  top: 443.0px;
-  font-size: 31.09px;
-  font-weight: 680;
-  letter-spacing: 0.41px;
-  color: #082547;
-}
-
-/* 「ください！」 見本の文字の箱 x561〜680・y16587〜16614 に合わせて実測 */
-.toyo-l9{
-  left: 560.0px;
-  top: 490.1px;
-  font-size: 31.51px;
-  font-weight: 680;
-  letter-spacing: -0.59px;
-  color: #082445;
-}
-
-/* 「した方は過去5年間で」 見本の文字の箱 x561〜833・y16447〜16474 に合わせて実測 */
-.toyo-l6a{
-  left: 556.5px;
-  top: 351.1px;
-  font-size: 29.52px;
-  font-weight: 680;
-  letter-spacing: 0.31px;
-  color: #082446;
-}
-
-/* 「1,022」 見本の文字の箱 x838〜944・y16443〜16483 に合わせて実測 */
-.toyo-l6b{
-  left: 835.3px;
-  top: 343.5px;
-  font-size: 41.28px;
-  font-weight: 680;
-  letter-spacing: -0.22px;
-  color: #ecab0d;
-}
-
-/* 「名」 見本の文字の箱 x948〜972・y16447〜16474 に合わせて実測 */
-.toyo-l6c{
-  left: 947.0px;
-  top: 351.1px;
-  font-size: 29.43px;
-  font-weight: 680;
-  letter-spacing: 0.00px;
-  color: #082446;
-}
-
-.toyo-t{visibility: hidden;}
-.toyo-title{visibility: visible;}
-.toyo-l1{visibility: visible;}
-.toyo-l2{visibility: visible;}
-.toyo-l3{visibility: visible;}
-.toyo-l4{visibility: visible;}
-.toyo-l5{visibility: visible;}
-.toyo-l7{visibility: visible;}
-.toyo-l8{visibility: visible;}
-.toyo-l9{visibility: visible;}
-.toyo-l6a{visibility: visible;}
-.toyo-l6b{visibility: visible;}
-.toyo-l6c{visibility: visible;}

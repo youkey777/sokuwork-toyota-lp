@@ -1,268 +1,138 @@
-/* ===== nayami: こんな悩み、ありませんか？（見本 y=4665〜6121） ===== */
-/* 位置はすべて区画の上端・左端からの px（見本の画素を実測） */
+/* ===== nayami：こんな悩み、ありませんか？（写真3枚＋白い吹き出し）＋共感文＋下向き矢印 ===== */
 
-/* 区画の地（見本の紺 #052544 を実測）と高さの保証 */
 section[data-unit="nayami"]{
-  /* 文字の縁を白黒の滑らかさで描かせる（見本と同じ。色にじみを出さない） */
-  will-change: transform;
-  font-feature-settings: "palt";
-  height: 1456px;
   background: #052544;
   color: #fcfcfc;
+  padding: 28px var(--g) 22px;
+  text-align: center;
 }
 
-/* 見出し「こんな悩み、ありませんか？」（見本の字の上端 y=4703・左端 x=48） */
 .nayami-title{
-  position: absolute;
-  top: 33px;
-  left: 48.5px;
-  font-size: 76.2px;
+  font-size: min(2rem, calc((100vw - 2 * var(--g)) / 12.2));
   font-weight: 900;
-  line-height: 1;
-  letter-spacing: 4.5px;
-  white-space: nowrap;
-  -webkit-text-stroke-width: 0.9px;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  font-feature-settings: "palt" 1;
 }
 
-/* 写真と吹き出しの並び（箇条書きの印は出さない） */
 .nayami-list{
   list-style: none;
+  margin-top: 18px;
+  display: grid;
+  gap: 22px;
 }
 
-/* 写真（見本からの切り出し。左端 x=45・幅496） */
+/* スマホ: 写真の下に吹き出し（しっぽは上向き） */
+.nayami-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
 .nayami-photo{
-  position: absolute;
-  left: 45px;
+  width: 100%;
+  /* 写真の右端に元の見本の吹き出しのしっぽが写り込んでいるので、スマホでは右端を少し切る */
+  aspect-ratio: 1.54;
+  object-fit: cover;
+  object-position: left center;
   border-radius: 8px;
 }
 
-/* 1枚目の写真（見本 y=4814） */
-.nayami-item--1 .nayami-photo{
-  top: 149px;
-}
-
-/* 2枚目の写真（見本 y=5108） */
-.nayami-item--2 .nayami-photo{
-  top: 443px;
-}
-
-/* 3枚目の写真（見本 y=5408） */
-.nayami-item--3 .nayami-photo{
-  top: 743px;
-}
-
-/* 白い吹き出し（見本の白い面 x=552〜980・高さ176・角丸30。濃い紺の細線＋右下と左に明るい紺の縁） */
 .nayami-bubble{
-  position: absolute;
-  left: 552px;
-  width: 429px;
-  height: 176px;
+  position: relative;
+  margin: -26px 14px 0;
+  padding: 14px 16px;
+  border-radius: 22px;
   background: #fcfdfd;
-  border-radius: 30px;
-  box-shadow: 0 0 0 1px #02183f, 4px 1px 0 1px #042b57, -4px 0 0 0 #052a51;
+  box-shadow: 0 0 0 1px #02183f, 0 4px 0 #042b57;
   color: #04213e;
+  font-size: min(1.5rem, calc((100vw - 2 * var(--g) - 60px) / 8.4));
   font-weight: 900;
+  line-height: 1.35;
+  text-align: left;
 }
 
-/* 吹き出しのしっぽの縁（紺の三角。先端は見本 x=485） */
+/* 吹き出しのしっぽ */
 .nayami-bubble::before{
   content: "";
   position: absolute;
-  left: -67px;
-  top: 68px;
-  width: 72px;
-  height: 56px;
-  background: #062a52;
-  clip-path: polygon(0 40px, 72px 0, 72px 56px);
-}
-
-/* 吹き出しのしっぽの白い中身 */
-.nayami-bubble::after{
-  content: "";
-  position: absolute;
-  left: -57px;
-  top: 76px;
-  width: 65px;
-  height: 41px;
-  background: #fcfdfd;
-  clip-path: polygon(0 33px, 65px 0, 65px 41px);
-}
-
-/* 1つ目の吹き出し（見本 y=4822） */
-.nayami-item--1 .nayami-bubble{
-  top: 187px;
-}
-
-/* 2つ目の吹き出し（見本 y=5120） */
-.nayami-item--2 .nayami-bubble{
-  top: 485px;
-}
-
-/* 3つ目の吹き出し（見本 y=5425） */
-.nayami-item--3 .nayami-bubble{
-  top: 790px;
-}
-
-/* 吹き出しの中の文字（1行ずつ。見本の字の左端 x=595・行の間隔63） */
-.nayami-line{
-  position: absolute;
   left: 34px;
-  font-size: 51px;
-  line-height: 1;
+  top: -14px;
+  width: 26px;
+  height: 16px;
+  background: #fcfdfd;
+  clip-path: polygon(0 100%, 30% 0, 100% 100%);
+}
+
+.nayami-line{
+  display: block;
   white-space: nowrap;
 }
 
-/* 吹き出しの1行目（見本: 白い面の上端から字の上端まで32） */
-.nayami-line--1{
-  top: 27px;
-}
-
-/* 吹き出しの2行目 */
-.nayami-line--2{
-  top: 90px;
-}
-
-/* 共感文3行（白・中央寄せ。見本の字の上端 y=5746 / 5802 / 5856） */
-.nayami-body-line{
-  position: absolute;
-  left: 0;
-  width: 1024px;
-  font-size: 38px;
+.nayami-body{
+  margin-top: 24px;
+  font-size: 1.0625rem;
   font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
+  line-height: 1.75;
+  letter-spacing: 0.02em;
 }
 
-/* 共感文の1行目 */
-.nayami-body-line--1{
-  top: 1079px;
-  letter-spacing: 3px;
-  left: 3px;
-  font-size: 38px;
-  font-weight: 700;
-}
-
-/* 共感文の2行目 */
-.nayami-body-line--2{
-  top: 1133.5px;
-  letter-spacing: 2.6px;
-  left: 3px;
-  font-size: 38px;
-  font-weight: 700;
-}
-
-/* 共感文の3行目 */
-.nayami-body-line--3{
-  top: 1188.5px;
-  letter-spacing: 2.3px;
-  left: 2.5px;
-  font-size: 38px;
-  font-weight: 700;
-}
-
-/* 「その気持ち、よく分かります。」（見本の字の上端 y=5940・x=47〜978） */
 .nayami-catch{
-  position: absolute;
-  top: 1269px;
-  left: 8px;
-  width: 1024px;
-  font-size: 78.3px;
+  margin-top: 16px;
+  font-size: min(2rem, calc((100vw - 2 * var(--g)) / 13.4));
   font-weight: 900;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  letter-spacing: 0.9px;
-  -webkit-text-stroke-width: 1.5px;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  font-feature-settings: "palt" 1;
 }
 
-/* 下向きの矢印（見本 x=472〜550・y=6069〜6114） */
 .nayami-arrow{
-  position: absolute;
-  top: 1398px;
-  left: 466px;
+  display: block;
+  width: 56px;
+  height: 36px;
+  margin: 12px auto 0;
 }
 
-/* 矢印の線（白・太さ9） */
 .nayami-arrow-line{
   fill: none;
   stroke: #fcfcfc;
-  stroke-width: 9;
+  stroke-width: 10;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* 個別調整 n_b1l1（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--1 .nayami-line--1{
-  letter-spacing: 1.6px;
-  top: 29px;
-  left: 40.5px;
-  font-size: 51px;
-  font-weight: 800;
+/* ===== sm 640〜: 写真を左、吹き出しを右に（しっぽは左向き） ===== */
+@media (min-width: 640px){
+  section[data-unit="nayami"]{ padding: 36px var(--g) 28px; }
+  .nayami-title{ font-size: 2.6rem; }
+  .nayami-list{ gap: 18px; margin-top: 22px; }
+  .nayami-item{ flex-direction: row; align-items: center; }
+  .nayami-photo{ width: 52%; flex: none; }
+  .nayami-bubble{ flex: 1; margin: 0 0 0 22px; padding: 18px 20px; font-size: 1.55rem; border-radius: 26px; }
+  .nayami-bubble::before{ left: -16px; top: calc(50% - 13px); width: 18px; height: 26px; clip-path: polygon(100% 0, 0 55%, 100% 100%); background: #fcfdfd; }
+  .nayami-body{ font-size: 1.3rem; margin-top: 30px; }
+  .nayami-catch{ font-size: 2.6rem; margin-top: 20px; }
+  .nayami-arrow{ width: 70px; height: 45px; }
 }
 
-/* 個別調整 n_b1l2（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--1 .nayami-line--2{
-  letter-spacing: 2.2px;
-  top: 92px;
-  left: 40.5px;
-  font-size: 51px;
-  font-weight: 800;
+/* ===== md 768〜 ===== */
+@media (min-width: 768px){
+  .nayami-title{ font-size: 3.6rem; }
+  .nayami-bubble{ font-size: 1.95rem; padding: 22px 20px 22px 24px; }
+  .nayami-body{ font-size: 1.6rem; }
+  .nayami-catch{ font-size: 3.6rem; }
 }
 
-/* 個別調整 n_b2l2（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--2 .nayami-line--2{
-  letter-spacing: -0.8px;
-  top: 93px;
-  left: 39.5px;
-  font-size: 51px;
-  font-weight: 800;
-}
-
-/* 個別調整 n_b3l1（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--3 .nayami-line--1{
-  letter-spacing: 0.4px;
-  top: 28px;
-  left: 40px;
-  font-size: 51px;
-  font-weight: 800;
-}
-
-/* 個別調整 n_b3l2（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--3 .nayami-line--2{
-  letter-spacing: -0.3px;
-  top: 91.5px;
-  left: 40px;
-  font-size: 51px;
-  font-weight: 800;
-  font-feature-settings: "palt";
-}
-
-/* 個別調整 n_b2l1（見本の字の外形に合わせて実測で詰めた位置・大きさ・字間） */
-.nayami-item--2 .nayami-line--1{
-  top: 29px;
-  left: 39.5px;
-  letter-spacing: 1.1px;
-  font-size: 51px;
-  font-weight: 800;
-}
-
-/* 2つ目の吹き出しのしっぽ（先端が少し下。見本の先端 y=5231） */
-.nayami-item--2 .nayami-bubble::before{
-  top: 71px;
-}
-
-/* 2つ目の吹き出しのしっぽの白い中身 */
-.nayami-item--2 .nayami-bubble::after{
-  top: 79px;
-}
-
-/* 3つ目の吹き出しのしっぽ（先端が少し上。見本の先端 y=5529） */
-.nayami-item--3 .nayami-bubble::before{
-  top: 64px;
-}
-
-/* 3つ目の吹き出しのしっぽの白い中身 */
-.nayami-item--3 .nayami-bubble::after{
-  top: 72px;
+/* ===== lg 1024〜（見本: 見出し76px・写真496幅・吹き出しの文字51px・共感文38px） ===== */
+@media (min-width: 1024px){
+  section[data-unit="nayami"]{ padding: 2rem 3.3rem 1.2rem 3rem; }
+  .nayami-title{ font-size: 4.75rem; letter-spacing: -0.04em; }
+  .nayami-list{ margin-top: 1.1rem; gap: 1.1rem; }
+  .nayami-photo{ width: 30rem; }
+  .nayami-bubble{ margin-left: 1.1rem; padding: 1.5rem 0.9rem 1.5rem 1.5rem; border-radius: 1.9rem; font-size: 3rem; line-height: 1.38; box-shadow: 0 0 0 1px #02183f, 4px 1px 0 1px #042b57, -4px 0 0 0 #052a51; }
+  .nayami-bubble::before{ left: -2.4rem; width: 2.6rem; height: 2rem; top: calc(50% - 1rem); }
+  .nayami-body{ font-size: 2.375rem; line-height: 1.5; margin-top: 2.4rem; letter-spacing: 0.03em; }
+  .nayami-catch{ font-size: 4.9rem; margin-top: 1.4rem; letter-spacing: -0.05em; }
+  .nayami-arrow{ width: 5.6rem; height: 3.6rem; margin-top: 1.3rem; }
 }
