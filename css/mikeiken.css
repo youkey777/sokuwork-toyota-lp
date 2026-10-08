@@ -166,3 +166,13 @@ section[data-unit="mikeiken"]{
   .mikeiken-job-head{ font-size: 2.8rem; padding-top: 0.8rem; }
   .mikeiken-job-body{ font-size: 1.55rem; line-height: 1.55; letter-spacing: -0.01em; }
 }
+
+/* 業務内容の箇条（2026-10-09 発注主の原稿に差し替え。プレス・溶接・塗装は外した） */
+.mikeiken-job-lead{ margin: 6px 0 0; padding: 0 var(--g); font-weight: 700; color: #c2410c; font-size: 1rem; line-height: 1.6; }
+.mikeiken-job-list{ list-style: none; margin: 8px 0 0; padding: 0 var(--g); }
+.mikeiken-job-list li{ position: relative; padding-left: 1.1em; font-size: 1rem; line-height: 1.7; color: #0f2445; }
+.mikeiken-job-list li + li{ margin-top: 2px; }
+.mikeiken-job-list li::before{ content: ""; position: absolute; left: 0.2em; top: 0.72em; width: 0.42em; height: 0.42em; border-radius: 50%; background: #f5b400; }
+@media (min-width: 640px){ .mikeiken-job-list li, .mikeiken-job-lead{ font-size: 1.15rem; } }
+@media (min-width: 1024px){ .mikeiken-job-list li, .mikeiken-job-lead{ font-size: 1.45rem; } }
+@media (min-width: 768px){ .mikeiken-job-list, .mikeiken-job-lead{ padding: 0; } }
