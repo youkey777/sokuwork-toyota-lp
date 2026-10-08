@@ -182,6 +182,8 @@ section[data-unit="nav_miryoku"]{
   height: 1em;
   color: transparent;
   align-self: flex-start;
+  /* 下の行は大きな数字に合わせて左の文字が下がるため、左の文字の間で上下の真ん中になるよう下げる（2026-10-08 Android実機で上寄りと指摘） */
+  top: 0.35em;
 }
 .nav_miryoku-plus::before,
 .nav_miryoku-plus::after{
@@ -200,6 +202,7 @@ section[data-unit="nav_miryoku"]{
 
 /* ===== sm 640〜 ===== */
 @media (min-width: 640px){
+  .nav_miryoku-plus{ top: 0.45em; }
   .nav_miryoku-title{ font-size: 1.75rem; padding-top: 22px; }
   .nav_miryoku-jump a{ min-height: 84px; gap: 10px; padding-top: 10px; }
   .nav_miryoku-j{ font-size: 1.6rem; }
@@ -233,7 +236,7 @@ section[data-unit="nav_miryoku"]{
   .nav_miryoku-r3 .nav_miryoku-label{ font-size: 1.6rem; }
   .nav_miryoku-r3 .nav_miryoku-num{ font-size: 3.2rem; }
   .nav_miryoku-r3 .nav_miryoku-unit{ font-size: 1.7rem; }
-  .nav_miryoku-plus{ font-size: 2rem; align-self: center; }
+  .nav_miryoku-plus{ font-size: 2rem; align-self: center; top: 0; }
 }
 
 /* ===== lg 1024〜（見本: 帯の高さ742・見出し80px・560は144px） ===== */
