@@ -103,3 +103,6 @@ p, dd, li{ text-wrap: pretty; }
   overflow-wrap: anywhere;
 }
 
+
+/* 公式LINEのマーク（白い吹き出し。公式ロゴ画像は読み込まない） */
+.line-ic{ display: inline-block; flex: none; width: 1.25em; height: 1.25em; vertical-align: -0.24em; margin-right: 0.4em; }

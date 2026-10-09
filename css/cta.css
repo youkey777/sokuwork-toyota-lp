@@ -130,3 +130,8 @@
   .cta-btn-circle{ width: 4.45rem; height: 4.45rem; margin-top: -2.22rem; right: 2.4rem; }
   .cta-note{ margin-top: 1.4rem; font-size: 1.7rem; letter-spacing: 0.09em; }
 }
+/* 「公式LINEで応募する」: 文言が短くなったので1行。左に白いLINEのマーク（2026-10-09 応募は公式LINEへ） */
+.cta-btn-text{ white-space: nowrap; font-size: min(6.2vw, 1.5rem); }
+@media (min-width: 640px){ .cta-btn-text{ font-size: 1.75rem; } }
+@media (min-width: 768px){ .cta-btn-text{ font-size: 2.2rem; } }
+@media (min-width: 1024px){ .cta-btn-text{ font-size: 2.8rem; } }

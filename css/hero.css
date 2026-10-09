@@ -252,3 +252,5 @@ section[data-unit="hero"]{
   .hero-visual{ height: clamp(28rem, calc(100svh - 6rem - 14.5rem), 50.625rem); }
   .hero-photo{ object-position: 60% 30%; }
 }
+/* 右上の「LINEで応募」: 左に白いLINEのマーク */
+.hero-btn .line-ic{ width: 1.2em; height: 1.2em; margin-right: 0.05em; }
