@@ -139,5 +139,5 @@ section[data-unit="nayami"]{
 
 /* 吹き出しは1行に収める（2026-10-09 発注主指示）。吹き出しの中身の幅に合わせて文字の大きさを決める。
    一番長い「趣味のお金をもっと増やしたい」14字が入るよう 14.6 で割る。3つとも同じ大きさにそろう */
-.nayami-bubble{ container-type: inline-size; white-space: nowrap; }
-.nayami-line{ display: inline; font-size: min(1em, calc(100cqi / 14.6)); }
+.nayami-bubble{ container-type: inline-size; white-space: nowrap; -webkit-text-size-adjust: none; text-size-adjust: none; }
+.nayami-line{ display: inline; font-size: min(1em, calc(100cqi / 15.2)); }
