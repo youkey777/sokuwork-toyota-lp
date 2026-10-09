@@ -509,3 +509,28 @@ section[data-unit="boshu"]{
   .boshu-placebox{ grid-template-columns: 1fr 25.9rem; gap: 1.5rem; padding: 0 0 0 1.5rem; align-items: start; margin-top: 1.4rem; }
   .boshu-place{ font-size: 1.95rem; line-height: 1.7; margin-top: 2.2rem; }
 }
+
+/* 手当・待遇・福利厚生: 3列・大きな薄い番号の上に項目名（2026-10-09 発注主指示。見本は paystorage.co.jp の福利厚生） */
+.boshu-list{ columns: auto; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 6px; row-gap: 4px; margin-top: 14px; padding: 0; counter-reset: fuku; }
+.boshu-li{
+  counter-increment: fuku; position: relative; isolation: isolate;
+  display: flex; align-items: center; justify-content: center; min-height: 4.8em;
+  padding: 0 2px; border-bottom: 0; text-align: center; white-space: normal; word-break: keep-all;
+  font-size: min(0.98rem, calc((100vw - 2 * var(--g) - 12px) / 3 / 6.4)); font-weight: 800; line-height: 1.35; color: #0b2447;
+}
+.boshu-list .boshu-li::before{
+  content: counter(fuku, decimal-leading-zero);
+  position: absolute; inset: 0; z-index: -1; display: flex; align-items: center; justify-content: center;
+  width: auto; height: auto; margin: 0; border: 0; transform: none;
+  font-family: "Roboto", "Noto Sans JP", sans-serif; font-weight: 900; font-size: 3.9em; line-height: 1; letter-spacing: -0.04em;
+  color: #e2e7ee;
+}
+@media (min-width: 640px){
+  .boshu-list{ column-gap: 12px; row-gap: 8px; margin-top: 18px; }
+  .boshu-li{ font-size: 1.15rem; padding: 0 4px; min-height: 5em; }
+}
+@media (min-width: 1024px){
+  .boshu-bar + .boshu-list{ margin-top: 1.4rem; }
+  .boshu-list{ column-gap: 1.2rem; row-gap: 0.6rem; padding: 0 0.6rem; }
+  .boshu-li{ font-size: 1.7rem; padding: 0 0.4rem; min-height: 5em; }
+}
