@@ -534,3 +534,10 @@ section[data-unit="boshu"]{
   .boshu-list{ column-gap: 1.2rem; row-gap: 0.6rem; padding: 0 0.6rem; }
   .boshu-li{ font-size: 1.7rem; padding: 0 0.4rem; min-height: 5em; }
 }
+
+/* ===== 勤務地: 10工場の地図（2026-10-09 発注主。文章の下に地図を全幅で置く。図は tools/map/make_map.py で作る） ===== */
+.boshu-placebox{ display: block; }
+.boshu-map{ display: block; width: 100%; max-width: 640px; margin: 14px auto 0; }
+.boshu-map img{ display: block; width: 100%; height: auto; border: 1px solid #c9d3e3; border-radius: 8px; }
+@media (min-width: 640px){ .boshu-placebox{ display: block; } .boshu-map{ max-width: 640px; } }
+@media (min-width: 1024px){ .boshu-placebox{ display: block; padding: 0 1.2rem; } .boshu-place{ margin-top: 0.8rem; } .boshu-map{ max-width: 44rem; margin-top: 1.4rem; } }
