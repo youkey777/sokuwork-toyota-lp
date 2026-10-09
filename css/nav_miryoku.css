@@ -266,3 +266,10 @@ section[data-unit="nav_miryoku"]{
   .nav_miryoku-r3 .nav_miryoku-unit{ font-size: 2.63rem; }
   .nav_miryoku-plus{ font-size: 2.85rem; align-self: center; }
 }
+
+/* 2026-10-09 発注主（Android）: 見出しの下の白い線が右へ伸びて人物の目に刺さる → 1023px までは線の長さを画面幅の58%で止め、顔の手前で終わらせる */
+@media (max-width: 1023px){
+  .nav_miryoku-head{ border-bottom: 0; }
+  .nav_miryoku-head::after{ content: ""; display: block; width: min(100%, 58vw); height: 2px; margin-top: 12px; background: rgba(250, 251, 252, 0.9); }
+  .nav_miryoku-head{ padding-bottom: 0; }
+}
