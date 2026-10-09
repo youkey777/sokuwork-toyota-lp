@@ -1,5 +1,4 @@
 /* ===== toyo：正社員登用制度について（紺の帯＋写真＋本文） ===== */
-
 section[data-unit="toyo"]{
   background: #fdfdfd;
   padding: 18px var(--g) 30px;
@@ -27,8 +26,12 @@ section[data-unit="toyo"]{
   object-fit: cover;
 }
 
+/* 正社員登用制度: 画面幅 639px 以下での指定 */
 @media (max-width: 639px){
-  .toyo-photo{ aspect-ratio: 4 / 3; object-position: 50% 30%; }
+  .toyo-photo{
+    aspect-ratio: 4 / 3;
+    object-position: 50% 30%;
+  }
 }
 
 .toyo-text{
@@ -52,22 +55,52 @@ section[data-unit="toyo"]{
 
 /* ===== sm 640〜: 写真と本文を横に並べる ===== */
 @media (min-width: 640px){
-  section[data-unit="toyo"]{ padding: 22px var(--g) 36px; }
-  .toyo-band{ font-size: 1.75rem; padding: 10px 20px; }
-  .toyo-body{ grid-template-columns: 1fr 1fr; align-items: start; gap: 22px; margin-top: 18px; }
-  .toyo-text{ font-size: 1.125rem; }
+  section[data-unit="toyo"]{
+    padding: 22px var(--g) 36px;
+  }
+  .toyo-band{
+    font-size: 1.75rem;
+    padding: 10px 20px;
+  }
+  .toyo-body{
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    gap: 22px;
+    margin-top: 18px;
+  }
+  .toyo-text{
+    font-size: 1.125rem;
+  }
 }
 
 /* ===== md 768〜 ===== */
 @media (min-width: 768px){
-  .toyo-text{ font-size: 1.4rem; line-height: 1.7; }
+  .toyo-text{
+    font-size: 1.4rem;
+    line-height: 1.7;
+  }
 }
 
 /* ===== lg 1024〜（見本: 帯の見出し35px・写真493×423・本文30px） ===== */
 @media (min-width: 1024px){
-  section[data-unit="toyo"]{ padding: 0.8rem 2rem 4.4rem; }
-  .toyo-band{ font-size: 2.2rem; padding: 0.7rem 1.6rem; }
-  .toyo-body{ grid-template-columns: 30.8rem 1fr; gap: 2.2rem; margin-top: 1.3rem; }
-  .toyo-text{ font-size: 1.86rem; line-height: 1.68; letter-spacing: 0.01em; }
-  .toyo-text + .toyo-text{ margin-top: 0.6rem; }
+  section[data-unit="toyo"]{
+    padding: 0.8rem 2rem 4.4rem;
+  }
+  .toyo-band{
+    font-size: 2.2rem;
+    padding: 0.7rem 1.6rem;
+  }
+  .toyo-body{
+    grid-template-columns: 30.8rem 1fr;
+    gap: 2.2rem;
+    margin-top: 1.3rem;
+  }
+  .toyo-text{
+    font-size: 1.86rem;
+    line-height: 1.68;
+    letter-spacing: 0.01em;
+  }
+  .toyo-text + .toyo-text{
+    margin-top: 0.6rem;
+  }
 }

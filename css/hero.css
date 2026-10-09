@@ -1,7 +1,6 @@
 /* ===== hero：ヘッダー帯＋ファーストビュー＋数字3列＋正社員登用の行 =====
    最初の画面（スマホ 390×844・PC 1280×900）に見出し・数字・応募ボタンが収まるよう、
    写真の高さを画面の高さから決める（svh）。 */
-
 section[data-unit="hero"]{
   background: #072646;
   color: #fcfcfc;
@@ -193,64 +192,176 @@ section[data-unit="hero"]{
 
 /* ===== sm 640〜 ===== */
 @media (min-width: 640px){
-  .hero-header{ height: 68px; }
-  .hero-logo{ font-size: 1.625rem; }
-  .hero-btn{ height: 50px; font-size: 1.1875rem; padding: 0 18px 0 22px; border-width: 3px; }
-  .hero-visual{ height: clamp(340px, calc(100svh - 68px - 270px), 620px); }
-  .hero-kicker{ font-size: 1.75rem; }
-  .hero-stats{ padding: 22px 0 18px; }
-  .hero-s-label{ font-size: 1.375rem; }
-  .hero-s-num{ font-size: 4.25rem; }
-  .hero-s-unit{ font-size: 1.75rem; }
-  .hero-s3{ font-size: 2.75rem; }
-  .hero-seiki{ font-size: 1.5rem; padding: 16px var(--g) 20px; }
+  .hero-header{
+    height: 68px;
+  }
+  .hero-logo{
+    font-size: 1.625rem;
+  }
+  .hero-btn{
+    height: 50px;
+    font-size: 1.1875rem;
+    padding: 0 18px 0 22px;
+    border-width: 3px;
+  }
+  .hero-visual{
+    height: clamp(340px, calc(100svh - 68px - 270px), 620px);
+  }
+  .hero-kicker{
+    font-size: 1.75rem;
+  }
+  .hero-stats{
+    padding: 22px 0 18px;
+  }
+  .hero-s-label{
+    font-size: 1.375rem;
+  }
+  .hero-s-num{
+    font-size: 4.25rem;
+  }
+  .hero-s-unit{
+    font-size: 1.75rem;
+  }
+  .hero-s3{
+    font-size: 2.75rem;
+  }
+  .hero-seiki{
+    font-size: 1.5rem;
+    padding: 16px var(--g) 20px;
+  }
 }
 
 /* ===== md 768〜 ===== */
 @media (min-width: 768px){
-  .hero-header{ height: 80px; }
-  .hero-logo{ font-size: 2rem; }
-  .hero-btn{ height: 58px; font-size: 1.4375rem; }
-  .hero-visual{ height: clamp(380px, calc(100svh - 80px - 300px), 680px); }
-  .hero-copy{ bottom: 26px; }
-  .hero-kicker{ font-size: 2.25rem; }
-  .hero-s-label{ font-size: 1.75rem; }
-  .hero-s-num{ font-size: 5.5rem; }
-  .hero-s-unit{ font-size: 2.25rem; }
-  .hero-s3{ font-size: 3.5rem; }
-  .hero-seiki{ font-size: 2rem; }
+  .hero-header{
+    height: 80px;
+  }
+  .hero-logo{
+    font-size: 2rem;
+  }
+  .hero-btn{
+    height: 58px;
+    font-size: 1.4375rem;
+  }
+  .hero-visual{
+    height: clamp(380px, calc(100svh - 80px - 300px), 680px);
+  }
+  .hero-copy{
+    bottom: 26px;
+  }
+  .hero-kicker{
+    font-size: 2.25rem;
+  }
+  .hero-s-label{
+    font-size: 1.75rem;
+  }
+  .hero-s-num{
+    font-size: 5.5rem;
+  }
+  .hero-s-unit{
+    font-size: 2.25rem;
+  }
+  .hero-s3{
+    font-size: 3.5rem;
+  }
+  .hero-seiki{
+    font-size: 2rem;
+  }
 }
 
 /* ===== lg 1024〜（見本と同じ組み。写真の高さだけ画面の高さに合わせる） ===== */
 @media (min-width: 1024px){
-  .hero-header{ height: 6rem; padding-inline: 2.25rem 2.25rem; }
-  .hero-logo{ font-size: 2.55rem; letter-spacing: 0.004em; }
-  .hero-btn{ height: 4.5rem; padding: 0 1.4rem 0 1.85rem; font-size: 1.8rem; letter-spacing: -0.04em; border-width: 3px; box-shadow: 0 5px 0 #cd4a02, 0 6px 2px rgba(0, 0, 0, 0.3); }
-  .hero-btn-arrow{ margin-left: 0.25em; }
+  .hero-header{
+    height: 6rem;
+    padding-inline: 2.25rem 2.25rem;
+  }
+  .hero-logo{
+    font-size: 2.55rem;
+    letter-spacing: 0.004em;
+  }
+  .hero-btn{
+    height: 4.5rem;
+    padding: 0 1.4rem 0 1.85rem;
+    font-size: 1.8rem;
+    letter-spacing: -0.04em;
+    border-width: 3px;
+    box-shadow: 0 5px 0 #cd4a02, 0 6px 2px rgba(0, 0, 0, 0.3);
+  }
+  .hero-btn-arrow{
+    margin-left: 0.25em;
+  }
   /* PC 1280×900 で数字まで見えるよう、写真は画面の高さから決める（上限は見本の 810px） */
-  .hero-visual{ height: clamp(28rem, calc(100svh - 6rem - 15rem), 50.625rem); }
+  .hero-visual{
+    height: clamp(28rem, calc(100svh - 6rem - 15rem), 50.625rem);
+  }
   /* 写真が低くなっても顔が見出しに隠れないよう、少し下側を見せる */
-  .hero-photo{ object-position: 60% 30%; }
-  .hero-visual::after{ height: 55%; background: linear-gradient(to top, rgba(4, 26, 52, 0.55) 0%, rgba(4, 26, 52, 0.2) 55%, rgba(4, 26, 52, 0) 100%); }
-  .hero-copy{ left: 1.5rem; bottom: 1.6rem; }
-  .hero-kicker{ font-size: 3rem; margin-left: 0.4rem; }
-  .hero-lead{ font-size: 7.1rem; letter-spacing: -0.075em; line-height: 1.1; }
-  .hero-stats{ margin: 0 2.4rem; padding: 1.5rem 0 1.4rem; grid-template-columns: 1fr 1fr 1fr; }
-  .hero-stats li{ padding: 0.25rem 0; }
-  .hero-s-label{ font-size: 2.85rem; }
-  .hero-s-num{ font-size: 8.2rem; letter-spacing: -0.05em; }
-  .hero-s-unit{ font-size: 3.2rem; letter-spacing: -0.1em; }
-  .hero-s3{ font-size: 4.6rem; letter-spacing: 0.02em; }
-  .hero-seiki{ font-size: 3rem; padding: 1rem var(--g) 1.4rem; letter-spacing: 0.05em; }
-  .hero-seiki-num{ font-size: 1.48em; }
+  .hero-photo{
+    object-position: 60% 30%;
+  }
+  .hero-visual::after{
+    height: 55%;
+    background: linear-gradient(to top, rgba(4, 26, 52, 0.55) 0%, rgba(4, 26, 52, 0.2) 55%, rgba(4, 26, 52, 0) 100%);
+  }
+  .hero-copy{
+    left: 1.5rem;
+    bottom: 1.6rem;
+  }
+  .hero-kicker{
+    font-size: 3rem;
+    margin-left: 0.4rem;
+  }
+  .hero-lead{
+    font-size: 7.1rem;
+    letter-spacing: -0.075em;
+    line-height: 1.1;
+  }
+  .hero-stats{
+    margin: 0 2.4rem;
+    padding: 1.5rem 0 1.4rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .hero-stats li{
+    padding: 0.25rem 0;
+  }
+  .hero-s-label{
+    font-size: 2.85rem;
+  }
+  .hero-s-num{
+    font-size: 8.2rem;
+    letter-spacing: -0.05em;
+  }
+  .hero-s-unit{
+    font-size: 3.2rem;
+    letter-spacing: -0.1em;
+  }
+  .hero-s3{
+    font-size: 4.6rem;
+    letter-spacing: 0.02em;
+  }
+  .hero-seiki{
+    font-size: 3rem;
+    padding: 1rem var(--g) 1.4rem;
+    letter-spacing: 0.05em;
+  }
+  .hero-seiki-num{
+    font-size: 1.48em;
+  }
 }
 
 /* ===== xl 1280〜 は lg と同じ組み ===== */
-
 /* ===== 2xl 1536〜: 文字の基準が18pxになり一回り大きくなる。見出しが大きくなる分、写真を少し高くして顔に重ならないようにする ===== */
 @media (min-width: 1536px){
-  .hero-visual{ height: clamp(28rem, calc(100svh - 6rem - 14.5rem), 50.625rem); }
-  .hero-photo{ object-position: 60% 30%; }
+  .hero-visual{
+    height: clamp(28rem, calc(100svh - 6rem - 14.5rem), 50.625rem);
+  }
+  .hero-photo{
+    object-position: 60% 30%;
+  }
 }
+
 /* 右上の「LINEで応募」: 左に白いLINEのマーク */
-.hero-btn .line-ic{ width: 1.2em; height: 1.2em; margin-right: 0.05em; }
+.hero-btn .line-ic{
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 0.05em;
+}

@@ -2,13 +2,17 @@
    モバイルファースト。区切りは Tailwind 標準の5つ:
    sm 640px / md 768px / lg 1024px / xl 1280px / 2xl 1536px
    大きさは rem で書き、2xl だけ html の文字の基準を 16px→18px に上げて一回り大きく組む（縮小・拡大の変形は使わない）。 */
-
 :root{
-  --navy: #072646;          /* 紺の地 */
-  --navy-2: #0b2443;        /* 帯の紺 */
-  --navy-text: #0b2447;     /* 白地の上の見出し・本文の紺 */
-  --gold: #f0a800;          /* 白地の上の金額の数字 */
-  --gold-on-navy: #fcbd08;  /* 紺地の上の金額の数字 */
+  --navy: #072646;
+  /* 紺の地 */
+  --navy-2: #0b2443;
+  /* 帯の紺 */
+  --navy-text: #0b2447;
+  /* 白地の上の見出し・本文の紺 */
+  --gold: #f0a800;
+  /* 白地の上の金額の数字 */
+  --gold-on-navy: #fcbd08;
+  /* 紺地の上の金額の数字 */
   --white: #fcfcfc;
   --note: #c8d3e6;
   /* 左右の余白（帯ごとに広げる） */
@@ -16,14 +20,36 @@
   /* 本体の列の幅の上限 */
   --col: 1024px;
 }
-@media (min-width: 640px){ :root{ --g: 24px; } }
-@media (min-width: 768px){ :root{ --g: 32px; } }
-@media (min-width: 1024px){ :root{ --g: 40px; } }
-@media (min-width: 1536px){ :root{ --col: 1152px; } }
 
-*,
-*::before,
-*::after{
+/* 全体の土台: 画面幅 sm 640px 以上 での大きさ・組みの調整 */
+@media (min-width: 640px){
+  :root{
+    --g: 24px;
+  }
+}
+
+/* 全体の土台: 画面幅 md 768px 以上 での大きさ・組みの調整 */
+@media (min-width: 768px){
+  :root{
+    --g: 32px;
+  }
+}
+
+/* 全体の土台: 画面幅 lg 1024px 以上 での大きさ・組みの調整 */
+@media (min-width: 1024px){
+  :root{
+    --g: 40px;
+  }
+}
+
+/* 全体の土台: 画面幅 2xl 1536px 以上 での大きさ・組みの調整 */
+@media (min-width: 1536px){
+  :root{
+    --col: 1152px;
+  }
+}
+
+*, *::before, *::after{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -34,7 +60,13 @@ html{
   -webkit-text-size-adjust: 100%;
   font-size: 16px;
 }
-@media (min-width: 1536px){ html{ font-size: 18px; } }
+
+/* 全体の土台: 画面幅 2xl 1536px 以上 での大きさ・組みの調整 */
+@media (min-width: 1536px){
+  html{
+    font-size: 18px;
+  }
+}
 
 body{
   font-family: "Noto Sans JP", sans-serif;
@@ -53,12 +85,19 @@ body{
   overflow: hidden;
   background: #fdfdfd;
 }
+
+/* 全体の土台: 画面幅 xl 1280px 以上 での大きさ・組みの調整 */
 @media (min-width: 1280px){
-  .lp{ box-shadow: 0 0 40px rgba(5, 25, 50, 0.12); }
+  .lp{
+    box-shadow: 0 0 40px rgba(5, 25, 50, 0.12);
+  }
 }
+
 /* 1024以上は見本と同じく約物（、。「」など）を詰めて組む */
 @media (min-width: 1024px){
-  .lp{ font-feature-settings: "palt" 1; }
+  .lp{
+    font-feature-settings: "palt" 1;
+  }
 }
 
 section[data-unit]{
@@ -78,23 +117,44 @@ a{
   touch-action: manipulation;
 }
 
-button,
-input,
-select{
+button, input, select{
   font: inherit;
   color: inherit;
 }
 
 /* 共通の部品 */
-.in{ padding-inline: var(--g); }        /* 左右の余白 */
-.nw{ white-space: nowrap; }             /* 折り返さない（数字・語のかたまり） */
-.ib{ display: inline-block; }           /* 語のかたまり単位で折り返す */
-.num{ font-family: "Roboto", "Noto Sans JP", sans-serif; }
-.jp-tight{ font-feature-settings: "palt" 1; }
+.in{
+  padding-inline: var(--g);
+}
+
+/* 左右の余白 */
+.nw{
+  white-space: nowrap;
+}
+
+/* 折り返さない（数字・語のかたまり） */
+.ib{
+  display: inline-block;
+}
+
+/* 語のかたまり単位で折り返す */
+.num{
+  font-family: "Roboto", "Noto Sans JP", sans-serif;
+}
+
+.jp-tight{
+  font-feature-settings: "palt" 1;
+}
+
 /* 文の途中で変に折れないよう、日本語は文節で折り返す（対応ブラウザのみ） */
-h1, h2, h3, h4, summary, .ib{ word-break: auto-phrase; }
+h1, h2, h3, h4, summary, .ib{
+  word-break: auto-phrase;
+}
+
 /* 段落の最後の行に1〜2文字だけ残る折り返しを避ける（対応ブラウザのみ） */
-p, dd, li{ text-wrap: pretty; }
+p, dd, li{
+  text-wrap: pretty;
+}
 
 /* 長めの本文は文節の切れ目（build.py が BudouX で入れた <wbr>）でだけ折り返す。
    word-break: auto-phrase は iPhone の Safari で効かないので使わない。収まらない長い語だけは overflow-wrap で救う。 */
@@ -103,6 +163,12 @@ p, dd, li{ text-wrap: pretty; }
   overflow-wrap: anywhere;
 }
 
-
 /* 公式LINEのマーク（白い吹き出し。公式ロゴ画像は読み込まない） */
-.line-ic{ display: inline-block; flex: none; width: 1.25em; height: 1.25em; vertical-align: -0.24em; margin-right: 0.4em; }
+.line-ic{
+  display: inline-block;
+  flex: none;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.24em;
+  margin-right: 0.4em;
+}
