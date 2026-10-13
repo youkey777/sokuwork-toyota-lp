@@ -636,91 +636,180 @@ section[data-unit="closing"]{
   }
 }
 
-/* 運営会社（2026-10-13）：既存の紺色版フッターに限定 */
+/* 運営会社：参考の縦積み・横線を維持し、配色を紺×金へ（未公開修正版） */
+.closing-foot{
+  padding:20px var(--g) 0;
+}
+
 .closing-foot .company-info{
-  margin-top:2rem;
-  padding-top:2rem;
-  border-top:2px solid var(--navy);
-  font-size:1rem;
-  line-height:1.8;
-}
-
-.company-info h2{
-  font-size:1.5rem;
-  line-height:1.4;
-}
-
-.company-info .company-name{
-  margin:1rem 0 1.5rem;
-  font-size:1.25rem;
+  margin:24px calc(-1 * var(--g)) 0;
+  background:var(--navy);
+  color:#fff;
+  font-size:14px;
   font-weight:700;
+  line-height:1.5;
+  padding:64px var(--g) calc(56px + env(safe-area-inset-bottom,0px));
 }
 
-.company-details>div{
-  padding:1rem 0;
-  border-bottom:1px solid #ccd4de;
+.company-inner{
+  max-width:960px;
+  margin:0 auto;
 }
 
-.company-details dt{
-  font-weight:700;
-  margin-bottom:.375rem;
+.company-top-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:24px;
+  margin-bottom:32px;
+  font-size:12px;
 }
 
-.company-details dd{
-  min-width:0;
-  overflow-wrap:anywhere;
+.company-info a{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  min-height:28px;
+  color:inherit;
 }
 
-.company-links{
-  display:grid;
-  gap:.375rem;
-  margin-top:1.5rem;
-}
-
-.company-links a{
-  display:block;
-  width:fit-content;
-  max-width:100%;
-  padding:.625rem 0;
+.company-info a:hover{
   text-decoration:underline;
-  text-underline-offset:.25em;
+  text-underline-offset:4px;
 }
 
-.company-links a:hover{
-  color:#315d87;
-}
-
-.company-links a:focus-visible{
-  outline:3px solid var(--navy);
+.company-info a:focus-visible{
+  outline:2px solid var(--gold-on-navy);
   outline-offset:4px;
 }
 
-.company-new-tab{
-  font-size:.875rem;
-  display:inline-block;
+.company-external{
+  width:14px;
+  height:14px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  flex-shrink:0;
 }
 
-.closing-foot .closing-copy{
-  margin-top:2rem;
-  font-size:.875rem;
+.company-info h2{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  line-height:1.5;
+  color:var(--gold-on-navy);
+  margin:0 0 20px;
 }
 
-.closing-foot{
-  padding-bottom:calc(2rem + env(safe-area-inset-bottom, 0px));
+.company-info h2:after{
+  content:"";
+  height:1px;
+  background:var(--gold-on-navy);
+  flex:1;
+}
+
+.company-intro{
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(255,255,255,.7);
+}
+
+.company-info .company-name{
+  font-size:18px;
+  line-height:1.5;
+  margin:0 0 2px;
+  font-weight:800;
+}
+
+.company-intro a{
+  font-size:12px;
+}
+
+.company-details>div{
+  padding:20px 0;
+  border-bottom:1px solid rgba(255,255,255,.7);
+}
+
+.company-details dt{
+  font-size:14px;
+  margin-bottom:14px;
+  color:var(--gold-on-navy);
+}
+
+.company-details dd{
+  font-size:12px;
+  overflow-wrap:anywhere;
+}
+
+.company-offices{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.company-offices li{
+  position:relative;
+  padding-left:12px;
+}
+
+.company-offices li:before{
+  content:"・";
+  position:absolute;
+  left:0;
+  top:0;
+}
+
+.company-offices li+li{
+  margin-top:20px;
+}
+
+.company-office-name,.company-address{
+  display:block;
+}
+
+.company-registration{
+  margin-top:20px;
+  text-align:center;
+  font-size:11px;
+  line-height:1.5;
+}
+
+.company-info .closing-copy{
+  margin:20px 0 0;
+  text-align:center;
+  font-size:12px;
+  line-height:1.5;
+  color:#fff;
 }
 
 /* 締め・公式LINE・フッター: 画面幅 sm 640px 以上 での大きさ・組みの調整 */
 @media (min-width:640px){
+  .closing-foot .company-info{
+    padding-top:64px;
+    padding-bottom:64px;
+  }
+  .company-inner{
+    max-width:720px;
+  }
+  .company-top-links{
+    font-size:14px;
+    gap:32px;
+    margin-bottom:40px;
+  }
+  .company-info h2,.company-details dt{
+    font-size:16px;
+  }
+  .company-info .company-name{
+    font-size:22px;
+  }
+  .company-intro a,.company-details dd{
+    font-size:14px;
+  }
   .company-details>div{
-    display:grid;
-    grid-template-columns:11rem minmax(0,1fr);
-    gap:1.5rem;
+    padding:24px 0;
   }
-  .company-details dt{
-    margin-bottom:0;
-  }
-  .company-links{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    column-gap:2rem;
+  .company-external{
+    width:15px;
+    height:15px;
   }
 }
