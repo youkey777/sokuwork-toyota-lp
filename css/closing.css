@@ -636,13 +636,18 @@ section[data-unit="closing"]{
   }
 }
 
-/* 運営会社：参考の縦積み・横線を維持し、配色を紺×金へ（未公開修正版） */
+/* 運営会社：参考の縦積み・横線を維持し、配色を紺×金へ */
+/* 白いサービス紹介欄は上下36〜64px、見出し下16〜24pxの可変余白 */
+.closing-foot .closing-fbody{
+  margin-top:clamp(16px, 2vw, 24px);
+}
+
 .closing-foot{
-  padding:20px var(--g) 0;
+  padding:clamp(36px, 5vw, 64px) var(--g) 0;
 }
 
 .closing-foot .company-info{
-  margin:24px calc(-1 * var(--g)) 0;
+  margin:clamp(36px, 5vw, 64px) calc(-1 * var(--g)) 0;
   background:var(--navy);
   color:#fff;
   font-size:14px;
