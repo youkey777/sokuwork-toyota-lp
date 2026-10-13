@@ -365,3 +365,24 @@ section[data-unit="hero"]{
   height: 1.2em;
   margin-right: 0.05em;
 }
+
+/* Desktop: keep the upper photo bright and shade only behind the copy. */
+@media (min-width:1024px){
+.hero-visual::after{
+  height:100%;
+  background:linear-gradient(to top,rgba(4,26,52,.18),rgba(4,26,52,0) 70%);
+}
+.hero-copy{
+  isolation:isolate;
+  text-shadow:0 2px 3px rgba(0,10,30,.35);
+}
+.hero-copy::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  inset:-48px -64px -40px;
+  pointer-events:none;
+  background:linear-gradient(to bottom,rgba(4,26,52,0),rgba(4,26,52,.74) 40px,rgba(4,26,52,.78));
+  mask-image:radial-gradient(ellipse 14% 58% at 65% 0%,rgba(0,0,0,0),#000);
+}
+}
