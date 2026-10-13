@@ -635,3 +635,92 @@ section[data-unit="closing"]{
     font-size: 3.6rem;
   }
 }
+
+/* 運営会社（2026-10-13）：既存の紺色版フッターに限定 */
+.closing-foot .company-info{
+  margin-top:2rem;
+  padding-top:2rem;
+  border-top:2px solid var(--navy);
+  font-size:1rem;
+  line-height:1.8;
+}
+
+.company-info h2{
+  font-size:1.5rem;
+  line-height:1.4;
+}
+
+.company-info .company-name{
+  margin:1rem 0 1.5rem;
+  font-size:1.25rem;
+  font-weight:700;
+}
+
+.company-details>div{
+  padding:1rem 0;
+  border-bottom:1px solid #ccd4de;
+}
+
+.company-details dt{
+  font-weight:700;
+  margin-bottom:.375rem;
+}
+
+.company-details dd{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+.company-links{
+  display:grid;
+  gap:.375rem;
+  margin-top:1.5rem;
+}
+
+.company-links a{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  padding:.625rem 0;
+  text-decoration:underline;
+  text-underline-offset:.25em;
+}
+
+.company-links a:hover{
+  color:#315d87;
+}
+
+.company-links a:focus-visible{
+  outline:3px solid var(--navy);
+  outline-offset:4px;
+}
+
+.company-new-tab{
+  font-size:.875rem;
+  display:inline-block;
+}
+
+.closing-foot .closing-copy{
+  margin-top:2rem;
+  font-size:.875rem;
+}
+
+.closing-foot{
+  padding-bottom:calc(2rem + env(safe-area-inset-bottom, 0px));
+}
+
+/* 締め・公式LINE・フッター: 画面幅 sm 640px 以上 での大きさ・組みの調整 */
+@media (min-width:640px){
+  .company-details>div{
+    display:grid;
+    grid-template-columns:11rem minmax(0,1fr);
+    gap:1.5rem;
+  }
+  .company-details dt{
+    margin-bottom:0;
+  }
+  .company-links{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:2rem;
+  }
+}
