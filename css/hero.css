@@ -366,21 +366,41 @@ section[data-unit="hero"]{
   margin-right: 0.05em;
 }
 
-/* PC: 写真をそのまま見せる。紺の帯は使わず、文字のふち取りと淡い影だけで読ませる */
+/* PC: 写真をそのまま見せる。紺の帯は使わず、文字は「細いふち取り＋重ねた淡い影」で読ませる */
 @media (min-width:1024px){
   .hero-visual::after{
-    height: 45%;
-    background: linear-gradient(to top, rgba(4, 26, 52, 0.3), rgba(4, 26, 52, 0));
+    height: 40%;
+    background: linear-gradient(to top, rgba(4, 26, 52, 0.22), rgba(4, 26, 52, 0));
   }
   .hero-copy{
-    text-shadow: 0 2px 10px rgba(0, 10, 30, 0.55), 0 0 2px rgba(0, 10, 30, 0.6);
-  }
-  .hero-kicker,
-  .hero-lead{
-    -webkit-text-stroke: 0.09em rgba(6, 28, 56, 0.9);
-    paint-order: stroke fill;
+    bottom: 1.8rem;
+    text-shadow:
+      0 1px 2px rgba(0, 12, 32, 0.45),
+      0 4px 14px rgba(0, 12, 32, 0.4),
+      0 10px 30px rgba(0, 12, 32, 0.25);
   }
   .hero-kicker{
-    -webkit-text-stroke-width: 0.12em;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 2.2rem;
+    letter-spacing: 0.14em;
+    font-weight: 900;
+    margin-bottom: 0.2rem;
+  }
+  .hero-kicker::before{
+    content: "";
+    width: 3.2rem;
+    height: 3px;
+    background: #fed00d;
+    box-shadow: 0 1px 4px rgba(0, 12, 32, 0.4);
+  }
+  .hero-lead{
+    font-size: 5.4rem;
+    letter-spacing: -0.06em;
+  }
+  .hero-lead{
+    -webkit-text-stroke: 0.02em rgba(6, 28, 56, 0.55);
+    paint-order: stroke fill;
   }
 }
