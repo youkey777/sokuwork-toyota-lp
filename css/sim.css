@@ -523,7 +523,7 @@ section[data-unit="sim"]{
   }
 }
 
-/* ===== 12ヶ月目: 年間のお給料 560万円！！（総額と同じ強さの金の大きな数字。紺の面に置く） ===== */
+/* ===== 12ヶ月目: 年間のお給料 最高560万円も可能（総額と同じ強さの金の大きな数字。紺の面に置く） ===== */
 .sim-year{
   margin-top: 8px;
   padding: 12px 16px 14px;
@@ -612,5 +612,24 @@ section[data-unit="sim"]{
   }
   .sim-year-u{
     font-size: 3rem;
+  }
+}
+
+/* 給与シミュレーション: 画面幅 375px 未満（360px 端末）で「最高560万円も可能」を1行に収める */
+@media (max-width: 374px){
+  .sim-year-n{
+    font-size: 3.1rem;
+  }
+  .sim-year-u{
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 340px){
+  .sim-year-n{
+    font-size: 2.6rem;
+  }
+  .sim-year-u{
+    font-size: 1.2rem;
   }
 }
