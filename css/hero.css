@@ -380,20 +380,11 @@ section[data-unit="hero"]{
       0 10px 30px rgba(0, 12, 32, 0.25);
   }
   .hero-kicker{
-    display: flex;
-    align-items: center;
-    gap: 0.9rem;
+    margin-left: 0;
     font-size: 2.2rem;
     letter-spacing: 0.14em;
     font-weight: 900;
     margin-bottom: 0.2rem;
-  }
-  .hero-kicker::before{
-    content: "";
-    width: 3.2rem;
-    height: 3px;
-    background: #fed00d;
-    box-shadow: 0 1px 4px rgba(0, 12, 32, 0.4);
   }
   .hero-lead{
     font-size: 5.4rem;
